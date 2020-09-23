@@ -28,7 +28,9 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 
 - Pero sobre todo, `R` es gratuito y los interesados pueden descargar directamente de la biblioteca CRAN (http://cran.r- project.org/) más de 14 mil paquetes para innumerables propósitos. 
 
+
 <img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+
 
 
 ---
@@ -155,6 +157,7 @@ El reporte o compilación se puede generar en tres formatos.
 
 
 Un ejemplo de la compilación de un código o *script* R en formato `HTML` se muestra en la siguiente figura. Estas compilaciones son muy útiles para reportar avances de análisis y que se pueda mirar todo el proceso de análisis. Para revisiones previas resulta de mucha utilidad esta función de `RStudio`. 
+
 
 <img align="rigth" src="fig2/rp3.png" alt="drawing" width="500"/>
 
