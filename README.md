@@ -25,15 +25,6 @@ title: "Integrando tu tesis con `R`, `RStudio`, `RMarkdown`, `RPubs` y `GitHub`"
 author: "Salvador Mandujano Rodríguez"
 date: "`r Sys.Date()`"
 
-output:
-  prettydoc::html_pretty:
-    theme: architect
-    highlight: github
-
-#  beamer_presentation:
-#    colortheme: dolphin
-#    fonttheme: structurebold
-#    theme: Warsaw
 
 ---
   
