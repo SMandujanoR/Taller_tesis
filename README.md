@@ -19,6 +19,20 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 - Además del material que se empleará durante las clases, se han incluido algunos PDFs de las presentaciones.
 
 ---
+
+# Introducción
+  
+- Indudablemente estamos en la época `R`...! 
+  
+- Esto se debe, entre otros factores, a que este "programa" o ambiente de programación, proporciona un amplio abanico de herramientas estadísticas, gráficas, crear funciones propias, entre algunos. 
+
+- Pero sobre todo, `R` es gratuito y los interesados pueden descargar directamente de la biblioteca CRAN (http://cran.r- project.org/) más de 14 mil paquetes para innumerables propósitos. 
+
+
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+
+---
+
   
 
 # Universo `R`
@@ -33,6 +47,7 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 # Ecología con `R`
   
 <img align="rigth" src="fig2/C4.jpg" alt="drawing" width="500"/>
+
 
 ---
   
@@ -55,11 +70,13 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 
 8) Para ejemplificar el empleo de estas herramientas, en este taller se emplea una base de información del profesor. Pero las prácticas se pueden extraoplar fácilmente para las tesis de los participantes.
 
+
 ---
   
 # Sugerencias de libros para crear documentos
   
 <img align="rigth" src="fig2/Colla.jpg" alt="drawing" width="500"/>
+
 
 ---
   
@@ -68,6 +85,7 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 `R` es un sistema para análisis estadísticos y gráficos. El primer paso es instalar la versión más reciente de R que corresponda con el sistema (Windows, Mac, Linux u otro) de nuestro equipo de cómputo desde: <https://cran.r-project.org/>. 
 
 <img align="rigth" src="fig2/i1.png" alt="drawing" width="500"/>
+
 
 ---
   
@@ -82,11 +100,14 @@ Desde la consola de `R` se pueden ejecutar todos los códigos para los análisis
 
 Una vez instalado, al ejecutar `RStudio` se abre la pantalla dividida en cuatro áreas de trabajo. 
 
+
 <img align="rigth" src="fig2/R7.png" alt="drawing" width="500"/>
+
 
 El panel superior izquierdo es el editor donde se escriben los *scripts*, líneas o códigos `R` además donde se trabaja desde `RMarkdwon`. El panel inferior izquierdo es la consola propia de `R`. El panel superior derecho está constituido de varias pestañas: `Files`, `Plots`, `Help`y `Viewer` la cual es una área de trabajo muy útil para diversas tareas. El panel derecho inferior también está constituido de varias pestañas: `Environment`, `History`, `Connectios`y en esta caso `Git` porque ya se instaló ese paquete. Se sugiere configurar las preferencias de `RStudio` desde `Tools` y luego `Global options`. Para emplear caracteres en español se sugiere definir como código `UTF-8`. Para profundizar el empleo de `RStudio` se sugiere "*Learning RStudio for R Statistical Computing*" (Van der Loo y Mark 2012).
 
 <img align="rigth" src="fig2/rr5.png" alt="drawing" width="500"/>
+
 
 ---
   
@@ -94,11 +115,14 @@ El panel superior izquierdo es el editor donde se escriben los *scripts*, línea
   
 Al instalar inicialmente `R` se cargan numerosos paquetes y funciones todo listo para trabajar. Sin embargo, para objetivos particulares se han creado paquetes que pueden ser instalados directamente desde `RStudio`. para estos casos se sugiere instalar siempre las dependencias asociadas a cada paquete, para lo cual simplemente se "palomea" en el recuadro de opciones. Una vez instalados los paquetes, para trabajar deben cargarse previamente empleando la función:
   
+
 ```
 library(poner aquí nombre del paquete)
 ```
 
+
 <img align="rigth" src="fig2/1.png" alt="drawing" width="500"/>
+
 
 ---
   
@@ -106,11 +130,14 @@ library(poner aquí nombre del paquete)
   
 Una manera muy eficiente y recomendable de trabajar en `RStudio` es crear proyectos. Esto permite tener en una misma carpeta todos archivos con diferentes formatos (`.R`, `.Rmd`, `.jpg`, `.shp`, etc.). Para crear un nuevo proyecto simplemente en la parte superior derecha de `RStudio`.
 
+
 <img align="rigth" src="fig2/Col3.jpg" alt="drawing" width="500"/>
 
-Observando el panel superior derecho se observan no solo archivos de códigos `R` (que pueden ser varios dentro de un mismo proyecto), sino además archivos tipo `.txt`, `.html`, `.pdf`, `.jpg, etc. Es decir, en un solo proyecto se tiene toda la información que se requiere para su ejecución, así como archivos generados en el mismo. Como se mencionó, un proyecto no solo consiste en que se genera una carpeta específica, sino que `RStudio` crea una estructura interna que permite la lectura y almacenamiento dentro de la misma. Esto evita tener que estar escribiendo la ruta de lectura. 
+
+Observando el panel superior derecho se observan no solo archivos de códigos `R` (que pueden ser varios dentro de un mismo proyecto), sino además archivos tipo .txt, .html, .pdf, .jpg, etc. Es decir, en un solo proyecto se tiene toda la información que se requiere para su ejecución, así como archivos generados en el mismo. Como se mencionó, un proyecto no solo consiste en que se genera una carpeta específica, sino que `RStudio` crea una estructura interna que permite la lectura y almacenamiento dentro de la misma. Esto evita tener que estar escribiendo la ruta de lectura. 
 
 <img align="rigth" src="fig2/R13.png" alt="drawing" width="500"/>
+
 
 ---
   
