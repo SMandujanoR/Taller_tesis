@@ -35,7 +35,7 @@
 
   
 
-# Universo `R`
+# Universo R
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
 
@@ -44,7 +44,7 @@
 
 ---
   
-# Ecología con `R`
+# Ecología con R
   
 <img align="rigth" src="fig2/C4.jpg" alt="drawing" width="900"/>
 
@@ -111,7 +111,7 @@ El panel superior izquierdo es el editor donde se escriben los *scripts*, línea
 
 ---
   
-# Paquetes `R`
+# Paquetes R
   
 Al instalar inicialmente `R` se cargan numerosos paquetes y funciones todo listo para trabajar. Sin embargo, para objetivos particulares se han creado paquetes que pueden ser instalados directamente desde `RStudio`. para estos casos se sugiere instalar siempre las dependencias asociadas a cada paquete, para lo cual simplemente se "palomea" en el recuadro de opciones. Una vez instalados los paquetes, para trabajar deben cargarse previamente empleando la función:
   
