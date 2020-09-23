@@ -20,27 +20,13 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 
 ---
   
-# Introducción
-  
-- Indudablemente estamos en la época `R`...! 
-  
-- Esto se debe, entre otros factores, a que este "programa" o ambiente de programación, proporciona un amplio abanico de herramientas estadísticas, gráficas, crear funciones propias, entre algunos. 
 
-- Pero sobre todo, `R` es gratuito y los interesados pueden descargar directamente de la biblioteca CRAN (http://cran.r- project.org/) más de 14 mil paquetes para innumerables propósitos. 
-
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
-
----
-  
 # Universo `R`
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
 
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="Rbooks.png" alt="drawing" width="500"/>
 
-```{r R1000, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%"}
-knitr::include_graphics("fig2/Rbooks.png")
-```
 
 ---
   
