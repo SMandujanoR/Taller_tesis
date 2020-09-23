@@ -1,5 +1,7 @@
 # Taller: Integrando tu tesis desde R
 
+<img align="rigth" src="DEGRADADO.JPG" alt="drawing" width="500"/>
+
 Como parte del curso de posgrado "**Introducción a la Investigación**".
 
 Semana del 28 de Septiembre al 2 de Octubre del 2020.
