@@ -39,14 +39,14 @@ https://www.researchgate.net/profile/Salvador_Mandujano
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
 
-<img align="rigth" src="fig2/Rbooks.png" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Rbooks.png" alt="drawing" width="700"/>
 
 
 ---
   
 # Ecología con `R`
   
-<img align="rigth" src="fig2/C4.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/C4.jpg" alt="drawing" width="700"/>
 
 
 ---
@@ -75,7 +75,7 @@ https://www.researchgate.net/profile/Salvador_Mandujano
   
 # Sugerencias de libros para crear documentos
   
-<img align="rigth" src="fig2/Colla.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Colla.jpg" alt="drawing" width="700"/>
 
 
 ---
