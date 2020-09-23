@@ -1,4 +1,4 @@
-# Taller: Integrando tu tesis desde R
+# Integrando tu tesis con R, RStudio, RMarkdown, RPubs, GitHub y otros
 
 **Salvador Mandujano Rodríguez**
 
