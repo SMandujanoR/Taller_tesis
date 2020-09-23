@@ -1,8 +1,8 @@
-**Integrando tu tesis con `R`, `RStudio`, `RMarkdown`, `RPubs` y `GitHub`"**
+# **Integrando tu tesis con `R`, `RStudio`, `RMarkdown`, `RPubs` y `GitHub`"**
 
 *Salvador Mandujano Rodríguez*
   
-# Introducción
+## Introducción
   
 - Indudablemente estamos en la época `R`...! 
   
@@ -16,7 +16,7 @@ knitr::include_graphics("fig2/col2.jpg")
 
 ---
   
-# Universo `R`
+## Universo `R`
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
 
@@ -26,7 +26,7 @@ knitr::include_graphics("fig2/Rbooks.png")
 
 ---
   
-# Ecología con `R`
+## Ecología con `R`
   
 ```{r R1001, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
 knitr::include_graphics("fig2/C4.jpg")
@@ -34,7 +34,7 @@ knitr::include_graphics("fig2/C4.jpg")
 
 ---
   
-# Objetivo del taller
+## Objetivo del taller
   
   
 1) Describir las principales características y ventajas del programa `R`. 
@@ -55,7 +55,7 @@ knitr::include_graphics("fig2/C4.jpg")
 
 ---
   
-# Sugerencias de libros para crear documentos
+## Sugerencias de libros para crear documentos
   
 ```{r R1002, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
 knitr::include_graphics("fig2/Colla.jpg")
@@ -63,7 +63,7 @@ knitr::include_graphics("fig2/Colla.jpg")
 
 ---
   
-# R
+## R
   
 `R` es un sistema para análisis estadísticos y gráficos. El primer paso es instalar la versión más reciente de R que corresponda con el sistema (Windows, Mac, Linux u otro) de nuestro equipo de cómputo desde: <https://cran.r-project.org/>. 
 
