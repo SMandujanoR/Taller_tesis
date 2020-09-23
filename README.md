@@ -18,14 +18,6 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 
 - Además del material que se empleará durante las clases, se han incluido algunos PDFs de las presentaciones.
 
-Saludos!
-
----
-title: "Integrando tu tesis con `R`, `RStudio`, `RMarkdown`, `RPubs` y `GitHub`"
-author: "Salvador Mandujano Rodríguez"
-date: "`r Sys.Date()`"
-
-
 ---
   
 # Introducción
@@ -36,15 +28,15 @@ date: "`r Sys.Date()`"
 
 - Pero sobre todo, `R` es gratuito y los interesados pueden descargar directamente de la biblioteca CRAN (http://cran.r- project.org/) más de 14 mil paquetes para innumerables propósitos. 
 
-```{r R1, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%"}
-knitr::include_graphics("fig2/col2.jpg")
-```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
 # Universo `R`
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
+
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ```{r R1000, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%"}
 knitr::include_graphics("fig2/Rbooks.png")
@@ -54,9 +46,11 @@ knitr::include_graphics("fig2/Rbooks.png")
   
 # Ecología con `R`
   
+  
 ```{r R1001, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
 knitr::include_graphics("fig2/C4.jpg")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -86,6 +80,7 @@ knitr::include_graphics("fig2/C4.jpg")
 ```{r R1002, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
 knitr::include_graphics("fig2/Colla.jpg")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -96,6 +91,7 @@ knitr::include_graphics("fig2/Colla.jpg")
 ```{r R2, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 knitr::include_graphics('fig2/i1.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -108,6 +104,7 @@ Desde la consola de `R` se pueden ejecutar todos los códigos para los análisis
 ```{r R3, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.cap="Figura 3. Sitio para la instalación de RStudio.", out.width="85%"}
 knitr::include_graphics('fig2/i2.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 
 Una vez instalado, al ejecutar `RStudio` se abre la pantalla dividida en cuatro áreas de trabajo. 
@@ -116,12 +113,14 @@ Una vez instalado, al ejecutar `RStudio` se abre la pantalla dividida en cuatro 
 ```{r R4, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="95%"}
 knitr::include_graphics('fig2/R7.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 El panel superior izquierdo es el editor donde se escriben los *scripts*, líneas o códigos `R` además donde se trabaja desde `RMarkdwon`. El panel inferior izquierdo es la consola propia de `R`. El panel superior derecho está constituido de varias pestañas: `Files`, `Plots`, `Help`y `Viewer` la cual es una área de trabajo muy útil para diversas tareas. El panel derecho inferior también está constituido de varias pestañas: `Environment`, `History`, `Connectios`y en esta caso `Git` porque ya se instaló ese paquete. Se sugiere configurar las preferencias de `RStudio` desde `Tools` y luego `Global options`. Para emplear caracteres en español se sugiere definir como código `UTF-8`. Para profundizar el empleo de `RStudio` se sugiere "*Learning RStudio for R Statistical Computing*" (Van der Loo y Mark 2012).
 
 ```{r R5, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
 knitr::include_graphics('fig2/rr5.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -136,6 +135,7 @@ library(poner aquí nombre del paquete)
 ```{r R6, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
 knitr::include_graphics('fig2/1.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -146,12 +146,14 @@ Una manera muy eficiente y recomendable de trabajar en `RStudio` es crear proyec
 ```{r R7, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics('fig2/Col3.jpg')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Observando el panel superior derecho se observan no solo archivos de códigos `R` (que pueden ser varios dentro de un mismo proyecto), sino además archivos tipo `.txt`, `.html`, `.pdf`, `.jpg, etc. Es decir, en un solo proyecto se tiene toda la información que se requiere para su ejecución, así como archivos generados en el mismo. Como se mencionó, un proyecto no solo consiste en que se genera una carpeta específica, sino que `RStudio` crea una estructura interna que permite la lectura y almacenamiento dentro de la misma. Esto evita tener que estar escribiendo la ruta de lectura. 
 
 ```{r R8, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics('fig2/R13.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -163,6 +165,7 @@ Se puede obtener un informe o reporte de cada código ejecutado empleando la fun
 ```{r R10, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
 knitr::include_graphics('fig2/rp1.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 El reporte o compilación se puede generar en tres formatos. 
 
@@ -170,12 +173,14 @@ El reporte o compilación se puede generar en tres formatos.
 ```{r R11, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
 knitr::include_graphics('fig2/rp2.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Un ejemplo de la compilación de un código o *script* R en formato `HTML` se muestra en la siguiente figura. Estas compilaciones son muy útiles para reportar avances de análisis y que se pueda mirar todo el proceso de análisis. Para revisiones previas resulta de mucha utilidad esta función de `RStudio`. 
 
 ```{r R12, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics('fig2/rp3.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -187,6 +192,7 @@ Un aspecto importante a considerar es que si se quiere generar un reporte o docu
 ```{r R13, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
 knitr::include_graphics('fig2/Latex1.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 
 `LaTeX` es un programa muy poderoso para crear documentos de alta calidad y es muy empleado en la industria editorial para la generación de artículos y libros científicos. Así como en `R` los paquetes se bajan de la librería CRAN, en `LaTeX` se bajan desde CTAN. Para ejecutar `LaTeX` se pueden emplear diferentes plataformas dependiendo del sistema operativo, por ejemplo para Windows pueden servir `MiKTeX` y `Texmaker`, mientras que para Mac OS puede servir `TEXstudio`. Existen muchos recurso en la *web* para aprender `LaTeX`, un libro recomendable es "*Edición de Textos Científicos en LaTeX 2017: Composición, Diseño Editorial, Gráficos, Inkscape, Tikz y Presentaciones Beamer*" (Borbón y Mora 2017).
@@ -201,12 +207,14 @@ knitr::include_graphics('fig2/Latex1.png')
 ```{r R9, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="65%"}
 knitr::include_graphics('fig2/RMarkdown.png')
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 `RMarkdown` tiene como base los paquetes `knitr` y `Pandoc` lo que permite realizar un gran número de tareas con diferentes objetivos. 
 
 
 ```{r R14, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="30%"}
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Como por ejemplo:
   
@@ -242,6 +250,7 @@ f) Recursos adicionales en Internet:
 ```{r R15, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics("fig2/R25.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Luego se despliega la ventana `New R Markdown` con las opciones `Document`, `Presentation`, `Shiny` y `From Template`. Si se selecciona `Document` se abre una nueva ventana con las opciones de crear el documento en diferente formato: HTML, PDF y Word. 
 
@@ -249,6 +258,7 @@ Luego se despliega la ventana `New R Markdown` con las opciones `Document`, `Pre
 ```{r R16, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
 knitr::include_graphics("fig2/R26.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 
 Por ejemplo, si uno selecciona el formato HTML se creará automáticamente un documento con la exención `.Rmd`. En este documento se puede integrar texto empleando lenguaje `Markdown` . Para conocer la sintaxis de `Markdown` se sugiere visitar <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatshhet.pdf>. Además, en un documento `RMarkdown` se pueden incluir imágenes y códigos `R` ejecutables en tiempo real empleando los llamados `chunks`. 
@@ -257,12 +267,14 @@ Por ejemplo, si uno selecciona el formato HTML se creará automáticamente un do
 ```{r R17, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics("fig2/R21.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 El documento se puede visualizar en cualquier momento no solo en el formato inicialmente seleccionado, sino además en otros formatos disponibles. Para esto se ejecuta la función `Knit` del paquete `knitr` el cual debe estar previamente instalado.
 
 ```{r R18, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="65%", fig.cap="Para compilar un documento RMarkdown se emplea Knit el cual da la opción de que un mismo documento sea generado en diferentes formatos."}
 knitr::include_graphics("fig2/R31.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Otra ventaja de emplear `RMarkdown` es que un mismo documento puede ser compilado no solo como un PDF, HTML y Word, sino en otros formatos como presentaciones, presentaciones `PDF Beamer`
 (se sugiere visitar el sitio: <https://hartwork.org/beamer-theme-matrix/> para seleccionar alguna plantilla entre las muchas disponibles. 
@@ -270,6 +282,7 @@ Otra ventaja de emplear `RMarkdown` es que un mismo documento puede ser compilad
 ```{r R19, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%", fig.cap="Presentación como PDF Beamer muy útil para presentaciones en público."}
 knitr::include_graphics("fig2/beamer.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 Para formatos de libros electrónicos `ebook`, o bien seleccionar la plantilla de alguna revista científica para someter manuscritos a publicación empleando el paquete `rticles` por ejemplo. Para hacer las modificaciones e incluir muchas otras opciones de edición, lo se tiene que aprender como se modifica el llamado `YAML` o encabezado de los documentos en `RMarkdown`. 
   
@@ -279,6 +292,7 @@ Para profundizar en el empleo de `RMarkdown` se sugiere consultar el libro "*R M
 ```{r R20, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%", fig.cap="Desde RMarkdown se pueden generar libros electrónicos o ebooks."}
   knitr::include_graphics("fig2/ebook2.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 ---
     
@@ -289,6 +303,7 @@ Los documentos compilados en HTML desde `RMarkdown` pueden ser publicados en la 
 ```{r R21, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="80%"}
 knitr::include_graphics("fig2/rpu341.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 Para iniciar, en el panel superior izquierdo se muestra la ventana donde se selecciona `Publish` desde el documento HTML. Se despliega una nueva ventana (centro/izquierda) con la opción gratuita `RPubs` y la de cobro `RStudio Connect`. Al seleccionar la primera se abre una nueva ventana (inferior/izquierda) y al aceptar entrará a la *web* del sitio. Se abre ventana de dos pasos sencillos (superior/derecha). Es necesario estar registrado previamente para tener usuario y contraseña. En el segundo paso se pone un nombre al HTML y un breve resumen del objetivo del mismo. Si todo está bien se publicará (centro/derecho) en formato HTML disponible para su lectura. `RPubs` permite tener tantas publicaciones HTML como se guste. Por ejemplo, el sitio del autor es <http://rpubs.com/SMR8810> (inferior/derecha). Para mayores detalles se sugiere visitar el sitio en: <https://rpubs.com>.  
   
@@ -301,24 +316,28 @@ Para iniciar, en el panel superior izquierdo se muestra la ventana donde se sele
 ```{r R22, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
 knitr::include_graphics("fig2/git1.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 Para los fines del presente libro de *Foto-trampeo en R* se sugiere emplear `RStudio` de dos maneras. La primera es para ejecutar todos los códigos `R` de cada uno de los capítulos del Volumen I (<https://github.com/SMandujanoR/Foto-trampeo-R-Vol_I>). Para esto, es necesario que se descargue o clone todos las carpetas de cada uno de los capítulos. Una vez descargado el `.zip` en la computadora personal, cada usuario podrá organizar el directorio de trabajo desde donde ejecutará los códigos y ejemplos del libro empleando la función de proyecto `RStudio` llamada `Vol II. Rproj` que se descarga en el mismo archivo.
   
 ```{r R23, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
 knitr::include_graphics("fig2/git2.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 La segunda forma de interaccionar con `GitHub`, para aquellos usuarios con más experiencia, es modificando los códigos `R` del libro en aquellas líneas donde encuentre algún error (aunque se revisó exhaustivamente para evitar esto), o bien si quiere aportar alguna sugerencia que mejore el código. En estos casos se sugiere convertir el proyecto `RStudio` a uno de tipo `Version Control`, seleccionando `Git` y luego crear un nuevo repositorio desde `GitHub` y la dirección URL introducirla en el nuevo proyecto `RStudio` de versión de control. Desde ahí se podrán emplear las funciones `commit`, `pull` y `push`. 
   
 ```{r R24, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="75%"}
 knitr::include_graphics("fig2/Coll11.jpg")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 Alternativo, se puede emplear la versión `GitHub Desktop` como una interfase de interacción entre `RStudio` y `GitHub`. Todo este proceso puede emplearse para publicar sus propios proyectos. Para mayores detalles se sugiere consultar el libro "*The Beginner´s Guide to GitHub*" por Mailund (2019). 
   
 ```{r R25, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
 knitr::include_graphics("fig2/git340.png")
 ```
+<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
   
 ---
     
