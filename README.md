@@ -274,7 +274,7 @@ La segunda forma de interaccionar con `GitHub`, para aquellos usuarios con más 
 Alternativo, se puede emplear la versión `GitHub Desktop` como una interfase de interacción entre `RStudio` y `GitHub`. Todo este proceso puede emplearse para publicar sus propios proyectos. Para mayores detalles se sugiere consultar el libro "*The Beginner´s Guide to GitHub*" por Mailund (2019). 
   
   
-<img align="rigth" src="fig2/GitHubDesktop.png" alt="drawing" width="900"/>
+<img align="rigth" src="fig2/GitHubDesktop.png" alt="drawing" width="600"/>
   
 ---
     
