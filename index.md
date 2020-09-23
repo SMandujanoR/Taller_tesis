@@ -1,9 +1,6 @@
----
 **Integrando tu tesis con `R`, `RStudio`, `RMarkdown`, `RPubs` y `GitHub`"**
 
 *Salvador Mandujano Rodríguez*
-
----
   
 # Introducción
   
