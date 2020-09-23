@@ -158,8 +158,8 @@ El reporte o compilación se puede generar en tres formatos.
 
 Un ejemplo de la compilación de un código o *script* R en formato `HTML` se muestra en la siguiente figura. Estas compilaciones son muy útiles para reportar avances de análisis y que se pueda mirar todo el proceso de análisis. Para revisiones previas resulta de mucha utilidad esta función de `RStudio`. 
 
-
 <img align="rigth" src="fig2/rp3.png" alt="drawing" width="500"/>
+
 
 ---
   
