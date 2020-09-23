@@ -98,10 +98,7 @@ Al instalar inicialmente `R` se cargan numerosos paquetes y funciones todo listo
 library(poner aquí nombre del paquete)
 ```
 
-```{r R6, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
-knitr::include_graphics('fig2/1.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/1.png" alt="drawing" width="500"/>
 
 ---
   
@@ -109,17 +106,11 @@ knitr::include_graphics('fig2/1.png')
   
 Una manera muy eficiente y recomendable de trabajar en `RStudio` es crear proyectos. Esto permite tener en una misma carpeta todos archivos con diferentes formatos (`.R`, `.Rmd`, `.jpg`, `.shp`, etc.). Para crear un nuevo proyecto simplemente en la parte superior derecha de `RStudio`.
 
-```{r R7, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics('fig2/Col3.jpg')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Col3.jpg" alt="drawing" width="500"/>
 
 Observando el panel superior derecho se observan no solo archivos de códigos `R` (que pueden ser varios dentro de un mismo proyecto), sino además archivos tipo `.txt`, `.html`, `.pdf`, `.jpg, etc. Es decir, en un solo proyecto se tiene toda la información que se requiere para su ejecución, así como archivos generados en el mismo. Como se mencionó, un proyecto no solo consiste en que se genera una carpeta específica, sino que `RStudio` crea una estructura interna que permite la lectura y almacenamiento dentro de la misma. Esto evita tener que estar escribiendo la ruta de lectura. 
 
-```{r R8, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics('fig2/R13.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R13.png" alt="drawing" width="500"/>
 
 ---
   
@@ -128,25 +119,16 @@ knitr::include_graphics('fig2/R13.png')
 Se puede obtener un informe o reporte de cada código ejecutado empleando la función `Compile Report` desde `RStudio` como se muestra en la Figura 10. 
 
 
-```{r R10, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
-knitr::include_graphics('fig2/rp1.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/rp1.png" alt="drawing" width="500"/>
 
 El reporte o compilación se puede generar en tres formatos. 
 
 
-```{r R11, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
-knitr::include_graphics('fig2/rp2.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/rp2.png" alt="drawing" width="500"/>
 
 Un ejemplo de la compilación de un código o *script* R en formato `HTML` se muestra en la siguiente figura. Estas compilaciones son muy útiles para reportar avances de análisis y que se pueda mirar todo el proceso de análisis. Para revisiones previas resulta de mucha utilidad esta función de `RStudio`. 
 
-```{r R12, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics('fig2/rp3.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/rp3.png" alt="drawing" width="500"/>
 
 ---
   
@@ -155,10 +137,7 @@ knitr::include_graphics('fig2/rp3.png')
 Un aspecto importante a considerar es que si se quiere generar un reporte o documento en formato PDF es necesario antes instalar el programa `LaTeX` desde <http:www.latex-project.org>. 
 
 
-```{r R13, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
-knitr::include_graphics('fig2/Latex1.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Latex1.png" alt="drawing" width="500"/>
 
 
 `LaTeX` es un programa muy poderoso para crear documentos de alta calidad y es muy empleado en la industria editorial para la generación de artículos y libros científicos. Así como en `R` los paquetes se bajan de la librería CRAN, en `LaTeX` se bajan desde CTAN. Para ejecutar `LaTeX` se pueden emplear diferentes plataformas dependiendo del sistema operativo, por ejemplo para Windows pueden servir `MiKTeX` y `Texmaker`, mientras que para Mac OS puede servir `TEXstudio`. Existen muchos recurso en la *web* para aprender `LaTeX`, un libro recomendable es "*Edición de Textos Científicos en LaTeX 2017: Composición, Diseño Editorial, Gráficos, Inkscape, Tikz y Presentaciones Beamer*" (Borbón y Mora 2017).
@@ -170,16 +149,11 @@ knitr::include_graphics('fig2/Latex1.png')
 `Markdown` es un lenguaje comúnmente empleado para escribir textos y documentos electrónicos. La versión `R` de `Markdown` es el paquete `rmarkdown` el cual debe instalarse similar a cualquier otro paquete.
 
 
-```{r R9, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="65%"}
-knitr::include_graphics('fig2/RMarkdown.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/RMarkdown.png" alt="drawing" width="500"/>
 
 `RMarkdown` tiene como base los paquetes `knitr` y `Pandoc` lo que permite realizar un gran número de tareas con diferentes objetivos. 
 
 
-```{r R14, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="30%"}
-```
 <img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
 
 Como por ejemplo:
@@ -213,52 +187,34 @@ f) Recursos adicionales en Internet:
   Para crear un documento se tiene que ir a la pestaña `File`, seleccionar `New File` y `RMarkdown`.
 
 
-```{r R15, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics("fig2/R25.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R25.png" alt="drawing" width="500"/>
 
 Luego se despliega la ventana `New R Markdown` con las opciones `Document`, `Presentation`, `Shiny` y `From Template`. Si se selecciona `Document` se abre una nueva ventana con las opciones de crear el documento en diferente formato: HTML, PDF y Word. 
 
 
-```{r R16, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
-knitr::include_graphics("fig2/R26.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R26.png" alt="drawing" width="500"/>
 
 
 Por ejemplo, si uno selecciona el formato HTML se creará automáticamente un documento con la exención `.Rmd`. En este documento se puede integrar texto empleando lenguaje `Markdown` . Para conocer la sintaxis de `Markdown` se sugiere visitar <https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatshhet.pdf>. Además, en un documento `RMarkdown` se pueden incluir imágenes y códigos `R` ejecutables en tiempo real empleando los llamados `chunks`. 
 
 
-```{r R17, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics("fig2/R21.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R21.png" alt="drawing" width="500"/>
 
 El documento se puede visualizar en cualquier momento no solo en el formato inicialmente seleccionado, sino además en otros formatos disponibles. Para esto se ejecuta la función `Knit` del paquete `knitr` el cual debe estar previamente instalado.
 
-```{r R18, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="65%", fig.cap="Para compilar un documento RMarkdown se emplea Knit el cual da la opción de que un mismo documento sea generado en diferentes formatos."}
-knitr::include_graphics("fig2/R31.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R31.png" alt="drawing" width="500"/>
 
 Otra ventaja de emplear `RMarkdown` es que un mismo documento puede ser compilado no solo como un PDF, HTML y Word, sino en otros formatos como presentaciones, presentaciones `PDF Beamer`
 (se sugiere visitar el sitio: <https://hartwork.org/beamer-theme-matrix/> para seleccionar alguna plantilla entre las muchas disponibles. 
   
-```{r R19, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%", fig.cap="Presentación como PDF Beamer muy útil para presentaciones en público."}
-knitr::include_graphics("fig2/beamer.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/beamer.png" alt="drawing" width="500"/>
   
 Para formatos de libros electrónicos `ebook`, o bien seleccionar la plantilla de alguna revista científica para someter manuscritos a publicación empleando el paquete `rticles` por ejemplo. Para hacer las modificaciones e incluir muchas otras opciones de edición, lo se tiene que aprender como se modifica el llamado `YAML` o encabezado de los documentos en `RMarkdown`. 
   
 Para profundizar en el empleo de `RMarkdown` se sugiere consultar el libro "*R Markdown: The Definitive Guide *" (Xie 2018). El paquete `bookdown` es otra herramienta para crear documentos `Markdown`, particularmente para libros en formatos PDF, ebooks y otros. Para este caso se sugiere el libro "*bookdown: Authoring Books and Technical Documents with R Markdown*" (Xie 2016). Incluso con `RMarkdown` se pueden escribir tesis para lo cual se sugiere visitar sitios como: <https://eddjberry.netlif.com/post/writing-your-thesis-with-bookdown>.
   
   
-```{r R20, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%", fig.cap="Desde RMarkdown se pueden generar libros electrónicos o ebooks."}
-  knitr::include_graphics("fig2/ebook2.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/ebook2.png" alt="drawing" width="500"/>
   
 ---
     
