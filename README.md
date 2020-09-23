@@ -2,6 +2,8 @@
 
 **Salvador Mandujano Rodríguez**
 
+https://www.researchgate.net/profile/Salvador_Mandujano
+
 <img align="rigth" src="DEGRADADO.JPG" alt="drawing" width="500"/>
 
 Como parte del curso de posgrado "**Introducción a la Investigación**".
