@@ -2,7 +2,7 @@
 
 **Salvador Mandujano Rodríguez**
 
-<https://www.researchgate.net/profile/Salvador_Mandujano>
+ <https://www.researchgate.net/profile/Salvador_Mandujano>
 
 <img align="rigth" src="fig2/DEGRADADO.JPG" alt="drawing" width="500"/>
 
