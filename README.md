@@ -25,18 +25,14 @@ https://www.researchgate.net/profile/Salvador_Mandujano
   
 - Existen muchos recursos para aprender a usar y aplicar `R` en las más variadas diciplinas.
 
-<img align="rigth" src="Rbooks.png" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Rbooks.png" alt="drawing" width="500"/>
 
 
 ---
   
 # Ecología con `R`
   
-  
-```{r R1001, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
-knitr::include_graphics("fig2/C4.jpg")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/C4.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -63,10 +59,7 @@ knitr::include_graphics("fig2/C4.jpg")
   
 # Sugerencias de libros para crear documentos
   
-```{r R1002, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="85%", fig.cap=""}
-knitr::include_graphics("fig2/Colla.jpg")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Colla.jpg" alt="drawing" width="500"/>
 
 ---
   
@@ -74,10 +67,7 @@ knitr::include_graphics("fig2/Colla.jpg")
   
 `R` es un sistema para análisis estadísticos y gráficos. El primer paso es instalar la versión más reciente de R que corresponda con el sistema (Windows, Mac, Linux u otro) de nuestro equipo de cómputo desde: <https://cran.r-project.org/>. 
 
-```{r R2, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-knitr::include_graphics('fig2/i1.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/i1.png" alt="drawing" width="500"/>
 
 ---
   
@@ -87,26 +77,16 @@ Desde la consola de `R` se pueden ejecutar todos los códigos para los análisis
 <https://www.rstudio.com/products/rstudio/download/>.
 
 
-```{r R3, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.cap="Figura 3. Sitio para la instalación de RStudio.", out.width="85%"}
-knitr::include_graphics('fig2/i2.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/i2.png" alt="drawing" width="500"/>
 
 
 Una vez instalado, al ejecutar `RStudio` se abre la pantalla dividida en cuatro áreas de trabajo. 
 
-
-```{r R4, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width="95%"}
-knitr::include_graphics('fig2/R7.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/R7.png" alt="drawing" width="500"/>
 
 El panel superior izquierdo es el editor donde se escriben los *scripts*, líneas o códigos `R` además donde se trabaja desde `RMarkdwon`. El panel inferior izquierdo es la consola propia de `R`. El panel superior derecho está constituido de varias pestañas: `Files`, `Plots`, `Help`y `Viewer` la cual es una área de trabajo muy útil para diversas tareas. El panel derecho inferior también está constituido de varias pestañas: `Environment`, `History`, `Connectios`y en esta caso `Git` porque ya se instaló ese paquete. Se sugiere configurar las preferencias de `RStudio` desde `Tools` y luego `Global options`. Para emplear caracteres en español se sugiere definir como código `UTF-8`. Para profundizar el empleo de `RStudio` se sugiere "*Learning RStudio for R Statistical Computing*" (Van der Loo y Mark 2012).
 
-```{r R5, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="55%"}
-knitr::include_graphics('fig2/rr5.png')
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/rr5.png" alt="drawing" width="500"/>
 
 ---
   
