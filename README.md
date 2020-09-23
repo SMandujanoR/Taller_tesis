@@ -1,12 +1,10 @@
-# Integrando tu tesis con R, RStudio, RMarkdown, RPubs, GitHub y otros
+# Introducción a la Investigación: Módulo R
 
 **Salvador Mandujano Rodríguez**
 
 https://www.researchgate.net/profile/Salvador_Mandujano
 
 <img align="rigth" src="fig2/DEGRADADO.JPG" alt="drawing" width="500"/>
-
-- Módulo del curso de posgrado "**Introducción a la Investigación**".
 
 - Semana del 28 de Septiembre al 2 de Octubre del 2020.
 
