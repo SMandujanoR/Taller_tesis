@@ -29,7 +29,7 @@ https://www.researchgate.net/profile/Salvador_Mandujano
 - Pero sobre todo, `R` es gratuito y los interesados pueden descargar directamente de la biblioteca CRAN (http://cran.r- project.org/) más de 14 mil paquetes para innumerables propósitos. 
 
 
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/Col2.jpg" alt="drawing" width="500"/>
 
 
 
