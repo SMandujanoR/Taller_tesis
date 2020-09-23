@@ -126,6 +126,7 @@ El reporte o compilación se puede generar en tres formatos.
 
 <img align="rigth" src="fig2/rp2.png" alt="drawing" width="500"/>
 
+
 Un ejemplo de la compilación de un código o *script* R en formato `HTML` se muestra en la siguiente figura. Estas compilaciones son muy útiles para reportar avances de análisis y que se pueda mirar todo el proceso de análisis. Para revisiones previas resulta de mucha utilidad esta función de `RStudio`. 
 
 <img align="rigth" src="fig2/rp3.png" alt="drawing" width="500"/>
@@ -222,10 +223,7 @@ Para profundizar en el empleo de `RMarkdown` se sugiere consultar el libro "*R M
     
 Los documentos compilados en HTML desde `RMarkdown` pueden ser publicados en la *web*. Existen diferentes portales para realizar esto, sin embargo aquí se sugiere emplear `RPubs` el cual es un servicio gratuito que facilita publicar documentos en la web directamente desde `RStudio`. 
   
-```{r R21, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="80%"}
-knitr::include_graphics("fig2/rpu341.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+<img align="rigth" src="fig2/rpu341.png" alt="drawing" width="500"/>
   
 Para iniciar, en el panel superior izquierdo se muestra la ventana donde se selecciona `Publish` desde el documento HTML. Se despliega una nueva ventana (centro/izquierda) con la opción gratuita `RPubs` y la de cobro `RStudio Connect`. Al seleccionar la primera se abre una nueva ventana (inferior/izquierda) y al aceptar entrará a la *web* del sitio. Se abre ventana de dos pasos sencillos (superior/derecha). Es necesario estar registrado previamente para tener usuario y contraseña. En el segundo paso se pone un nombre al HTML y un breve resumen del objetivo del mismo. Si todo está bien se publicará (centro/derecho) en formato HTML disponible para su lectura. `RPubs` permite tener tantas publicaciones HTML como se guste. Por ejemplo, el sitio del autor es <http://rpubs.com/SMR8810> (inferior/derecha). Para mayores detalles se sugiere visitar el sitio en: <https://rpubs.com>.  
   
@@ -235,31 +233,23 @@ Para iniciar, en el panel superior izquierdo se muestra la ventana donde se sele
     
 `GitHub` es un sistema de gestión de proyectos, control de versiones y plataforma de red social que permite trabajar en colaboración con otros personas. En particular, `GitHub` es un sitio *web* y un servicio en la nube que permite almacenar y administrar códigos, archivos y otros, además de que permite llevar un control sobre cualquier cambio a los códigos y proyectos. Para emplear e interaccionar en `GitHub` se requiere una cuenta de usuario. `GitHub` es un repositorio, por lo tanto se requiere de una plataforma para interaccionar. 
   
-```{r R22, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
-knitr::include_graphics("fig2/git1.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+  
+<img align="rigth" src="fig2/git1.png" alt="drawing" width="500"/>
   
 Para los fines del presente libro de *Foto-trampeo en R* se sugiere emplear `RStudio` de dos maneras. La primera es para ejecutar todos los códigos `R` de cada uno de los capítulos del Volumen I (<https://github.com/SMandujanoR/Foto-trampeo-R-Vol_I>). Para esto, es necesario que se descargue o clone todos las carpetas de cada uno de los capítulos. Una vez descargado el `.zip` en la computadora personal, cada usuario podrá organizar el directorio de trabajo desde donde ejecutará los códigos y ejemplos del libro empleando la función de proyecto `RStudio` llamada `Vol II. Rproj` que se descarga en el mismo archivo.
   
-```{r R23, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="95%"}
-knitr::include_graphics("fig2/git2.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+  
+<img align="rigth" src="fig2/git2.png" alt="drawing" width="500"/>
   
 La segunda forma de interaccionar con `GitHub`, para aquellos usuarios con más experiencia, es modificando los códigos `R` del libro en aquellas líneas donde encuentre algún error (aunque se revisó exhaustivamente para evitar esto), o bien si quiere aportar alguna sugerencia que mejore el código. En estos casos se sugiere convertir el proyecto `RStudio` a uno de tipo `Version Control`, seleccionando `Git` y luego crear un nuevo repositorio desde `GitHub` y la dirección URL introducirla en el nuevo proyecto `RStudio` de versión de control. Desde ahí se podrán emplear las funciones `commit`, `pull` y `push`. 
   
-```{r R24, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="75%"}
-knitr::include_graphics("fig2/Coll11.jpg")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+  
+<img align="rigth" src="fig2/Coll11.jpg" alt="drawing" width="500"/>
   
 Alternativo, se puede emplear la versión `GitHub Desktop` como una interfase de interacción entre `RStudio` y `GitHub`. Todo este proceso puede emplearse para publicar sus propios proyectos. Para mayores detalles se sugiere consultar el libro "*The Beginner´s Guide to GitHub*" por Mailund (2019). 
   
-```{r R25, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="85%"}
-knitr::include_graphics("fig2/git340.png")
-```
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
+  
+<img align="rigth" src="fig2/git340.png" alt="drawing" width="500"/>
   
 ---
     
