@@ -184,9 +184,6 @@ Un aspecto importante a considerar es que si se quiere generar un reporte o docu
 
 `RMarkdown` tiene como base los paquetes `knitr` y `Pandoc` lo que permite realizar un gran número de tareas con diferentes objetivos. 
 
-
-<img align="rigth" src="fig2/col2.jpg" alt="drawing" width="500"/>
-
 Como por ejemplo:
   
 a) Compilar documentos en formatos como: 
