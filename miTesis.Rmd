@@ -1,0 +1,62 @@
+---
+title: "Manual de foto-trampeo en R aplicado al monitoreo de fauna"
+subtitle: "Salvador Mandujano Rodríguez"
+author: 
+- "Tesis"
+- "Doctorado en Ciencias"
+- "Instituto de Ecología A.C." 
+- "Xalapa, Ver., México"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  bookdown::pdf_book:
+    includes:
+      #in_header: preamble.tex
+    keep_tex: yes
+    latex_engine: xelatex
+    citation_package: natbib
+site: bookdown::bookdown_site
+documentclass: book
+
+header-includes:
+  - \usepackage[utf8]{inputenc}
+  - \usepackage[spanish]{babel}
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \fancyhead[LO]{\textit{\small{\nouppercase{\leftmark}}}}
+  - \fancyhead[RE]{\textit{\small{\nouppercase{\rightmark}}}}
+  - \fancyhead[RO,LE]{\thepage}
+
+fontsize: 11pt
+linestretch: 1.1
+toc-depth: 1
+secnumdepth: 1
+lof: True
+lot: True
+geometry: "left=4cm, right=3cm, top=2.5cm, bottom=2.5cm"
+bibliography: /Users/SMandujanoR/Documents/LaTex/bib/RAIs.bib
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r child = 'capitulo1.Rmd'}
+```
+
+```{r child = 'capitulo2.Rmd'}
+```
+
+```{r child = 'capitulo3.Rmd'}
+```
+
+```{r child = 'capitulo4.Rmd'}
+```
+
+```{r child = 'capitulo5.Rmd'}
+```
+
+```{r child = 'capitulo6.Rmd'}
+```
+
+```{r child= "Capítulo 6.Rmd"}
+```
+
