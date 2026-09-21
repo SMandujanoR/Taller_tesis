@@ -1,0 +1,64 @@
+---
+title: "Mi primer documento RMarkdown....!"
+author: "Salvador Mandujano R"
+date: "Septiembre 10, 2025"
+#output: html_document
+#output: slidy_presentation
+#output: word_document
+output: pdf_document
+---
+
+# Introducción
+
+Las cámaras-trampa son uno de los métodos más populares para obtener diferente información de la fauna, principalmente de mamíferos y aves de talla mediana y grande (Meek and Pittet 2013; McCallum 2013; Burton et al. 2015; Rowcliffe 2017). En particular, con el fototrampeo es muy frecuente calcular el RAI (Bengsen et al. 2011; O’Brien 2011). Por ejemplo, con ungulados (Rovero and Marshall 2009; Gómez-Valencia and Montenegro 2016), felinos (Bengsen, Butler, and Masters 2012), lepóridos (Marchandeau et al. 2006), entre algunos. 
+
+
+# Objetivos
+
+En este artículo se presenta la aplicación del paquete `RAI` desarrollado para estimar índices de abundancia relativa para diferentes especies mediante el foto-trampeo (Mandujano, *en revisión*). 
+
+# Métodos
+
+Para calcular el RAI se usa la fórmula:
+
+$$RAI_{i} = \frac{n_{tot}}{dias_{tot}} \times 100$$ 
+**(Eq.1)**
+
+donde: $n_{tot}$ es el número total de registros fotográficos independientes de la *i*-especie, $dias_{tot}$ es el esfuerzo de muestreo o número total de días, y 100 es el factor de corrección estándar. Es decir, el RAI simplemente es un índice que expresa el número promedio de fotos por cada 100 días de muestreo. Asume que a mayor valor del RAI la abundancia de la especie es mayor, pero no lo expresa como número de individuos de la población sino simplemente como un índice (Caugley 1977).
+
+
+# Resultados
+
+Datos de mi muestreo:
+
+```{r}
+datos <- read.csv("datos/datos.csv")
+datos
+```
+
+---
+
+## Modelo de regresión lineal
+
+```{r}
+mod1 <- lm(Densidad ~ Conteo, data = datos)
+summary(mod1)
+```
+
+---
+
+## Gráfico de regresión.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+attach(datos)
+par(mfrow = c(1,1))
+plot(Conteo, Densidad, frame.plot = F, las=1, xlab = "Número de fotos", ylab = "Densidad (ind/km2)", main = "Modelo lineal simple", pch = 16, col = "skyblue", cex = 2)
+abline(lm(Densidad ~ Conteo), col = "red", lwd = 2.5) 
+```
+
+
+# Conclusiones
+
+El presente documento describe paso a paso el uso del paquete `RAI` desarrollado para calcular índices de abundancia relativa (RAI) a partir de una misma base de datos obtenidas durante el fototrampeo, empleando la plataforma de R. El paquete calcula el `RAI` de tres maneras: 1) de la forma tradicional donde se agrupan los datos y se obtiene un solo valor por especie, 2) considerando cada cámara como una répicla espacial lo que permite un análisis estadístico más robusto al estimar la variación del índice, y 3) como un modelo lineal generalizado (GLM) tipo regresión Poisson calibrando por el número de días por cámara.
+
+# Referencias

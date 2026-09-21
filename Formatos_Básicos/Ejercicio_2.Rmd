@@ -1,0 +1,208 @@
+---
+title: "RAI: paquete R para calcular la abundancia relativa a partir de foto-trampeo"
+author: "Salvador Mandujano R"
+date: "9/2/2024"
+output: html_document
+---
+
+# Resumen
+
+*El presente documento describe paso a paso el uso del paquete `RAI` desarrollado para calcular índices de abundancia relativa (RAI) a partir de una misma base de datos obtenidas durante el fototrampeo, empleando la plataforma de R. El paquete calcula el `RAI` de tres maneras: 1) de la forma tradicional donde se agrupan los datos y se obtiene un solo valor por especie, 2) considerando cada cámara como una répicla espacial lo que permite un análisis estadístico más robusto al estimar la variación del índice, y 3) como un modelo lineal generalizado (GLM) tipo regresión Poisson calibrando por el número de días por cámara. El paquete `RAI` tiene 12 funciones que generan tablas, figuras y análisis estadísticos. En este artículo se ejemplifica el uso de este paquete con un conjunto de datos de un estudio de foto-trampeo en la Reserva de Biósfera Tehuacán-Cuicatlán en Oaxaca, México. El paquete `RAI` está disponible libremente.*
+
+*Palabras clave*: cámara-trampa, índices abundancias relativas, modelos, distribución naive, modelo lineal generalizado.
+
+\pagebreak
+
+# Introducción
+
+Los índices de abundancia relativa (IAR o también conocidos como RAI por sus siglas en inglés) tienen larga tradición en los estudios y monitoreo de fauna silvestre (Crawford 1991; Caughley and Sinclair 1994); particularmente, para especies raras y/o difíciles de detectar (Thompson 2013). Frecuentemente los RAI son usados como un indicador de la abundancia de la(s) especie(s) en el sitio de estudio (Sutherland 2006; O’Brien 2011). Algunos RAI clásicos son los basados en las estaciones olfativas (Linhart and Knowlton 1975; Conner, Labisky, and Progulske 1983), conteo de aves en puntos por unidad de tiempo (Johnson 2008), conteo de nidos y madrigueras (Mathewson et al. 2008; Hanser et al. 2011), conteo de huellas a lo largo de caminos (Mandujano 2005; Stephens et al. 2006; Winterbach et al. 2016), conteo de excrementos en parcelas (Eberhardt and Van Etten 1956; Campbell, Swanson, and Sales 2004), conteos de senderos (McCaffery 1976) y otros. En algunos casos, los índices son calibrados o convertidos a densidad poblacional, pero en la mayoría de los casos se emplean solo para un comparación relativa entre especies y para la misma especie en el mismo sitio de estudio o entre sitios (O’Brien 2011).
+
+Las cámaras-trampa son uno de los métodos más populares para obtener diferente información de la fauna, principalmente de mamíferos y aves de talla mediana y grande (Meek and Pittet 2013; McCallum 2013; Burton et al. 2015; Rowcliffe 2017). En particular, con el fototrampeo es muy frecuente calcular el RAI (Bengsen et al. 2011; O’Brien 2011). Por ejemplo, con ungulados (Rovero and Marshall 2009; Gómez-Valencia and Montenegro 2016), felinos (Bengsen, Butler, and Masters 2012), lepóridos (Marchandeau et al. 2006), entre algunos. A partir de esta información se han puesto a prueba diversas hipótesis como. . . **COMPLETAR IDEA**
+
+## Supuestos y limitantes del RAI
+
+El cálculo e interpretación del RAI es relativamente simple: basado únicamente en el valor del índice se determina cuáles son las especies “más o menos abundantes” [@]. Esta interpretación es cualitativa y subjetiva pero se reporta en la mayoría de los trabajos como una medida indirecta de la abundancia de cada especie [@]. En muchos casos esta comparación carece de rigor estadístico por lo que las conclusiones deben tomarse con mucho cuidado [@].
+
+De manera general, estos son algunos de sus supuestos del RAI: 
+
+1) Supone una relación lineal positiva entre la abundancia (N) de la población y el RAI.
+2) Supone que para una misma especie que el RAI se comporta similar en diferentes localidades y en diferentes estaciones del año.
+3) Supone una constante o similar probabilidad de detección (temporal y espacialmente) para una misma especie y entre especies.
+4) Supone que el RAI no es afectado por la ubicación espacial de las cámaras.
+
+Adicionalmente, algunas de las limitantes del RAI son:
+
+1) No calcula intervalos de confianza de manera que no se puede evaluar el poder estadístico para detectar cambios en las poblaciones.
+2) Generalmente se calcula usando pocas cámaras lo cual puede sesgar la estimación, sobre todo si las cámaras no se colocan de manera aleatoria.
+7) Frecuentemente el diseño de muestreo está hecho para una especie en particular, por ejemplo algún depredador, y luego se utilizan todos los datos de las especies obtenidas en las cámaras.
+8) Es común poner las cámaras en los senderos y caminos; o bien en sitios seleccionados donde se sabe pasará el animal de interes. También es muy frecuente y discutible el empleo de atrayantes.
+
+Ambos aspectos, los supuestos y las limitantes se retoman en la sección de discusión de este artículo.
+
+## Objetivos de esta publicación
+
+En este artículo se presenta la aplicación del paquete `RAI` desarrollado para estimar índices de abundancia relativa para diferentes especies mediante el foto-trampeo (Mandujano, *en revisión*). En particular, en este artículo se presenta paso a paso el procedimiento para estimar el RAI considerando tres modelos:
+
+1) RAI tradicional o clásico;
+2) RAI alternativo que permite estimar la variación considerando los datos de cada cámara como replicas, y luego compararlos estadísticamente, y
+3) RAI como modelo lineal generalizado tipo Poisson.
+
+Para este fin, en este artículo se ejemplifica la aplicación de este paquete con un conjunto de datos obtenidos de 13 cámaras en una localidad de estudio en la Reserva de Biósfera Tehuacán-Cuicatlán en Oaxaca, México. Para detalles de este sitio se sugiere consultar los trabajos de Cruz-Jácome et al. (2014), Mandujano et al. (2016), y el blog <http://venadosrbtc.blogspot.com>.
+
+# Cálculo del RAI
+
+## Modelo clásico o general
+
+La manera más frecuente para estimar el RAI de cada especie es agrupando la información obtenida en todas las cámaras. Se define un periodo de tiempo en el cual se considera que las fotos de una misma especie son independientes. Habitualmente se emplean dos criterios: 60 min y 1440 min (24h) (@ CITA). Una vez definido esto, se calcula el número de fotos independientes y se divide entre el total de tiempo de muestreo expresado como días o noche-trampa. Frecuentemente, la tasa obtenida se multiplica por 100 o bien por 1000 si el número de registros es demasiado bajo. 
+
+Para calcular el RAI se usa la fórmula:
+
+$$RAI_{i} = \frac{n_{tot}}{dias_{tot}} \times 100$$ 
+**(Eq.1)**
+
+donde: $n_{tot}$ es el número total de registros fotográficos independientes de la *i*-especie, $dias_{tot}$ es el esfuerzo de muestreo o número total de días, y 100 es el factor de corrección estándar. Es decir, el RAI simplemente es un índice que expresa el número promedio de fotos por cada 100 días de muestreo. Asume que a mayor valor del RAI la abundancia de la especie es mayor, pero no lo expresa como número de individuos de la población sino simplemente como un índice (Caugley 1977).
+
+## Modelo alternativo
+
+### Heterogeneidad en la distribución de las especies
+
+Al no considerar la ubicación espacial de las cámaras ni las fotos específicas obtenidas en cada una, en el RAI clásico se pierde información relevante relacionada con la distribución espacial de las especies en el área de estudio. Esto se debe a que en el RAI clásico (**Eq.1**) se agrupa la información de todas las cámaras, por lo que no es evidente si la especie fue fotografiada en la mayoría o todas las camáras, o si la información proviene solo de algunas cámaras. Para ejemplificar, en la Figura 1 se muestra el mapa de la localización de varias cámaras en un sitio de estudio (Pérez-Solano et al. 2018). Se muestra información del número de fotos obtenidas para diferentes especies. Es interesante notar la heterogeneidad en la distribución y número de fotos obtenidas de diferentes especies en cada cámara. 
+
+
+```{r f, echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center', fig.cap= "Distribución de especies fotografiadas en diferentes cámaras-trampa en Actopan, Ver. Basado en Pérez-Solano et al. (2016)."}
+knitr::include_graphics("figs/mapaRAI.png", dpi = 250 )
+```
+
+Una estadístico alternativo al RAI y que está relacionado con la distribución, es el que se conoce como “ocupación”. Hay modelos para estimar este parámetro, pero uno de los más sencillos es la propoción de sitios ocupados también conocida como “ocupación naive” o bien PAO. Una alternativa más robusta es emplear los modelos que estiman la probabilidad de ocupación (ver **Sección x.x**).
+
+
+## Modelo lineal generalizado
+
+Otra manera completamente distinta de analizar los datos del foto-trampeo y calcular el RAI, es visualizarlo como un modelo lineal generalizado (GLM, por sus siglas en inglés de *Generalized Lineal Model*). Los GLMs extienden el concepto del efecto lineal de las covariables para los casos donde las variables de respuesta o dependiente no se distribuyen de manera normal (Kéry y Royle 2016). En particular, los GLM son muy útiles para los datos de conteos frecuentemente usados en el trabajo ecológico (Royle y Dorazio 2008). En el caso del foto-trampeo los conteos son el número de fotos independientes por especie en cada cámara. Una consideración importante es que los conteos no se distribuyen de manera normal, por lo que es necesario considerar otras distribuciones estadísticas, como la distribución Poisson (Hines 201x). Entonces el GLM se puede especificar como:
+
+$$n_i \sim Poisson(\lambda_i)$$
+$$log(\lambda_i) = \alpha_i + \beta * x$$
+
+donde: $n_i$ es el número de conteos de la *i*-especie; $\lambda$ (Lambda) es número promedio esperado de conteos; $\alpha$ y $\beta$ son los coeficientes de la regresión, específicamente la ordenada al origen y la pendiente respectivamente; mientras que *x* son la o las covariables o variables predictivas. El símbolo "$\sim$" se lee "*distribuido como*". Un aspecto relevante es que dado que el estimador de Lambda está en escala logarítmica, es necesario emplear la función `exp` para linearizar los resultados.
+
+
+# Descripción del paquete `RAI`
+
+El propósito principal del paquete calcular el RAI con cualquiera de los tres modelos descritos en la sección anterior (**Figura 2**). El paquete está integrado con 12 funciones que sirven para calcular los índices y generar cuadros de resultados, gráficos y análisis estadísticos. El paquete se puede decargar desde: <https://rpubs/SMR8810/RAI.html> o alternativamente copiar el código completo del paquete y el código para ejecutarlo (**Anexos**). De manera muy resumida, el paquete `RAI` consiste de cuatro pasos sencillos:
+
+```
+#################################################################
+# PASO 1
+# Cargar el paquete:
+source("RAI.R")
+# -----------------------
+
+# PASO 2 
+# Leer datos de fototrampeo:
+wildlife.data <- read.csv("mamiferos.csv", header = T)
+# Leer datos de covariables hábitat:
+habitat.data <- read.csv("habitat.csv", header = T)´
+# Seleccionar las especies para graficar fotos por cámara, por ejemplo:
+especie <- c("Odo_vir", "Uro_cin", "Can_lat", "Con_leu", "Did_vir", "Lyn_ruf")
+# -----------------------
+
+# PASO 3
+# seleccionar funciones del paquete:
+RAIgral() # modelo clásico
+RAIalt() # modelo alternativo
+Dist_spp() # grafica fotos por cámara y PAO para especies seleccionadas
+OccNaive() # proporción de sitios ocupados
+RAIfinal() # tabla de resultados finales
+# -----------------------
+
+# PASO 4: Compilación de documento 
+#library(rmarkdown)
+#rmarkdown::render("rai1.R", "pdf_document")
+
+#################################################################
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center', fig.cap= "Estructura del paquete RAI con las tres opciones de cálculo del índice de abundancia relativa y las 12 funciones asociadas."}
+knitr::include_graphics("figs/f1.jpg", dpi = 500 )
+```
+
+# Ejemplo de aplicación del paquete
+
+Para ejemplificar el empleo de este paquete, se utilizará un conjunto de datos de 13 especies obtenidos de 13 cámaras en una localidad de estudio en la Reserva de Biósfera Tehuacán-Cuicatlán en Oaxaca, México (Pérez-Solano et al. 2018). Para este fin, se sugiere descargar del sitio <http://RAI> los siguientes tres archivos: `mamiferos.csv`, `habitat.csv` y `pkgRAI_1.R`. Los primeros dos son datos del ejemplo del foto-trampeo y covariables, respectivamente; mientras que el tercero es el paquete `RAI` el cual no requiere instalación. Sin embargo, para su correcta ejecuación se debe cargar primero empleando la función `source`. 
+
+Se sugiere generar un proyecto dentro de `RStudio` y albergar en el mismo estos tres archivos. Los proyectos son una manera muy sencilla y eficaz de organizar y almacener los resultados (gráficos, tablas y otros) generados con este paquete. Un tutorial de cómo generar un proyecto en RStudio puede consultarse en <http://proyectos RStusio>. 
+
+## Cargar el paquete
+
+```{r, message=FALSE, warning=FALSE}
+source("R/pkgRAI_1.R")
+```
+
+## Datos de campo
+
+Se sugiere emplear Excel para capturar los datos del foto-trampeo. Esta tabla debe contener 4 columnas cada una con los siguientes nombres: `Camera`, `Species`, `Events` y `Effort`; que corresponden a la cámara-trampa, especie, número de fotos-independientes y número de días de muestreo, respectivamente. **Es muy importante que los nombres de las columnas sean exactamente como aquí se muestran de lo contrario el paquete no funcionará**. Una vez capturados los datos se deben guardar como  archivo tipo `.csv`. Luego en R o `RStudio` se carga el archivo de datos como:
+
+```{r, message=FALSE, warning=FALSE}
+wildlife.data <- read.csv("datos/mamiferos.csv", header = T)
+attach(wildlife.data)
+```
+
+**Tambien es muy importante que el nombre del objeto sea excamente llamado `wildlife.data`**. En este ejemplo específico, los datos están constituidos por el registro de 13 especies de mamíferos medianos y grandes en 13 cámaras trampa durante 250 y 281 días de muestreo en el sitio de estudio (**Cuadro 1**). En R se puede emplear la función `View(wildlife.data)` para observar los datos.
+
+```{r tab1,  echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+knitr::kable(head(wildlife.data, 6), caption = "Datos básicos por especie del número de registros independientes y esfuerzo de muestreo en cada cámara. Aquí se presentan solo los primeros 50 renglones de un total de 117. Abreviaciones de especies: *Odocoileus virginianus* (Odo_vir), *Urocyon cinereoargenteus* (Uro_cin), *Canis latrans* (Can_lat), *Conepatus leuconotus* (Con_leu), *Didelphis virginiana* (Did_vir), *Lynx rufus* (Lyn_ruf), *Bassariscus astutus* (Bas_ast), *Sylvilagus floridianus* (Syl_flo), *Nasua narica* (Nas_nar), *Pecari tajacu* (Pec_taj), *Leopardus wiedii* (Leo_wie), *Procyon lotor* (Pro_lot), *Mephitis macroura* (Mep_mac).")
+```
+
+Además de los datos de fotos de las especies en las cámaras, con el paquete RAI es posible incoporar otros datos o covariables en los análisis. Para esto, se introduce una segunda matriz conteniendo los datos de UTMs y covariables de hábitat (y cualquier otra que se requiera), para cada una de las cámaras.
+
+```{r, message=FALSE, warning=FALSE}
+habitat.data <- read.csv("datos/habitat.csv", header = T) 
+attach(habitat.data)
+```
+
+Los datos se muestran en el **Cuadro 2**.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::kable((habitat.data), caption = "Datos de UTMs y covariables asociados a cada cámara-trampa. Abreviaciones: distancia a la localidad más cercana (*Loc_dist*), distancia al camino más cercano (*Road_dist*), tipo de vegetación (*Veg_type*), superficie (*m$^2$*) de arbustos (*scrub*) y de pastos (*grass*).")
+```
+
+Luego, directamente desde el paquete `RAI` se genera una nueva matriz de datos donde se integran los datos `wildlife.data` y `habitat.data` en una sola base como la que se muestra en la **Cuadro 3**.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+new.mat <- merge(x = wildlife.data, y = habitat.data, by = "Camera", all = TRUE)
+library(kableExtra)
+library(xtable)
+x <- knitr::kable(head(new.mat, 26), caption = "Datos por especie en cada cámara. Aquí se presentan solo los primeros 26 renglones de un total de 117.", format = "latex", booktabs = TRUE)
+kableExtra::landscape(x)
+```
+
+# Resultados
+
+Datos de mi muestreo:
+
+```{r}
+datos <- read.csv("datos/datos.csv")
+head(datos)
+```
+
+Modelo de regresión lineal
+
+```{r}
+mod1 <- lm(Densidad ~ Conteo, data = datos)
+summary(mod1)
+```
+
+Gráfico de regresión.
+
+```{r}
+attach(datos)
+par(mfrow = c(1,1))
+plot(Conteo, Densidad, frame.plot = F, las=1, xlab = "Número de fotos", ylab = "Densidad (ind/km2)", main = "Modelo lineal simple", pch = 16, col = "skyblue", cex = 2)
+abline(lm(Densidad ~ Conteo), col = "red", lwd = 2.5) 
+```
+
+
+# Conclusiones
+
+El presente documento describe paso a paso el uso del paquete `RAI` desarrollado para calcular índices de abundancia relativa (RAI) a partir de una misma base de datos obtenidas durante el fototrampeo, empleando la plataforma de R. El paquete calcula el `RAI` de tres maneras: 1) de la forma tradicional donde se agrupan los datos y se obtiene un solo valor por especie, 2) considerando cada cámara como una répicla espacial lo que permite un análisis estadístico más robusto al estimar la variación del índice, y 3) como un modelo lineal generalizado (GLM) tipo regresión Poisson calibrando por el número de días por cámara.
+

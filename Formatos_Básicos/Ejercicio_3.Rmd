@@ -1,0 +1,152 @@
+---
+title: <h>Estimación de la densidad de venado cola blanca *Odocoileus virginianus*
+  en la RBTC</h>
+author: "Salvador Mandujano"
+date: "23/1/2019"
+output:
+  pdf_document: default
+  #html_document:
+   # df_print: paged
+---
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("R/pkgRAI_1.R")
+```
+
+## Datos de campo
+
+Se sugiere emplear Excel para capturar los datos del foto-trampeo. Esta tabla debe contener 4 columnas cada una con los siguientes nombres: `Camera`, `Species`, `Events` y `Effort`; que corresponden a la cámara-trampa, especie, número de fotos-independientes y número de días de muestreo, respectivamente. **Es muy importante que los nombres de las columnas sean exactamente como aquí se muestran de lo contrario el paquete no funcionará**. Una vez capturados los datos se deben guardar como  archivo tipo `.csv`. Luego en R o `RStudio` se carga el archivo de datos como:
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+wildlife.data <- read.csv("datos/mamiferos.csv", header = T)
+```
+
+En este ejemplo específico, los datos están constituidos por el registro de 13 especies de mamíferos medianos y grandes en 13 cámaras trampa durante 250 y 281 días de muestreo en el sitio de estudio (Cuadro \@ref(tab:tab1)). En R se puede emplear la función `View(wildlife.data)` para observar los datos.
+
+```{r tab1, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+knitr::kable(wildlife.data, caption = "Datos básicos por especie del número de registros independientes y esfuerzo de muestreo en cada cámara. Aquí se presentan solo los primeros 50 renglones de un total de 117. Abreviaciones de especies: *Odocoileus virginianus* (Odo_vir), *Urocyon cinereoargenteus* (Uro_cin), *Canis latrans* (Can_lat), *Conepatus leuconotus* (Con_leu), *Didelphis virginiana* (Did_vir), *Lynx rufus* (Lyn_ruf), *Bassariscus astutus* (Bas_ast), *Sylvilagus floridianus* (Syl_flo), *Nasua narica* (Nas_nar), *Pecari tajacu* (Pec_taj), *Leopardus wiedii* (Leo_wie), *Procyon lotor* (Pro_lot), *Mephitis macroura* (Mep_mac).")
+```
+
+Además de los datos de fotos de las especies en las cámaras, con el paquete RAI es posible incoporar otros datos o covariables en los análisis. Para esto, se introduce una segunda matriz conteniendo los datos de UTMs y covariables de hábitat (y cualquier otra que se requiera), para cada una de las cámaras.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+habitat.data <- read.csv("datos/habitat.csv", header = T) 
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::kable(habitat.data, caption = "Datos de UTMs y covariables asociados a cada cámara-trampa. Abreviaciones: distancia a la localidad más cercana (*Loc_dist*), distancia al camino más cercano (*Road_dist*), tipo de vegetación (*Veg_type*), superficie (*m$^2$*) de arbustos (*scrub*) y de pastos (*grass*).")
+```
+
+Luego, directamente desde el paquete `RAI` se genera una nueva matriz de datos donde se integran los datos `wildlife.data` y `habitat.data` en una sola base como la que se muestra en la **Cuadro 3**.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+new.mat <- merge(x = wildlife.data, y = habitat.data, by = "Camera", all = TRUE)
+library(kableExtra)
+library(xtable)
+knitr::kable(new.mat, caption = "Datos por especie en cada cámara. Aquí se presentan solo los primeros 26 renglones de un total de 117.", format = "latex", booktabs = TRUE) 
+```
+
+## Modelo general
+
+A partir de los datos de la **Cuadro 1** y ejectuando la función `RAIgral()`, se cálcula el RAI clásico para cada especie de acuerdo a la **Eq.1** y el paquete genera los resultados automáticamente (**Cuadro 4**). A partir de estos resultados en la mayoría de los trabajos se podría concluir que las especies más abundates (mayor RAI) son: *U. cinereoargentus*, *O. virginianus* y *C. latrans*; y todas las demás tiene baja abundancia. Sin embargo, esta conclusión es subjetiva ya que no se basa en ninguna prueba estadística que permita objetivamente sustentar cuáles especies tuvieron RAI distinto y significativo. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+Tot_cameras <- with(new.mat, length(unique(Camera))) 
+  cameras <- with(new.mat, tapply(Camera, Species, length)) 
+  days <- with(new.mat, tapply(Effort, Species, sum))   
+  n <- with(new.mat, tapply(Events, Species, sum))   
+  
+  occ <- subset(new.mat, new.mat$Events > 0)
+  OccNaive <- as.data.frame(round(table(occ$Species)/cameras,2))
+
+  RAIgral <- round(n/days*100, 2) 
+  table.1 <- cbind(cameras, days, n, RAIgral, OccNaive = OccNaive[,2])
+  table.1 <- table.1[order(RAIgral),]
+  
+knitr::kable(table.1, caption = "Estimaciones del índice de abundancia relativa (RAI) estimado con la Ecuación 1 para cada una de las especies.")
+```
+
+
+En este ejemplo el coyote *Canis latrans*  tiene más amplia distribución (ocupación naive = `r table.1[13,5]`) y abundancia relativa (IAR = `r table.1[13,4]`); mientras que el tigrillo *Leopardus wiedii* menor distribución (ocupación naive = `r table.1[1,5]`) y abundancia (IAR = `r table.1[1,4]`).
+
+## Modelo alternativo
+
+Para calcular el RAI de acuerdo a la **Eq.2** en la que se obtiene un índice por especie para cada cámara, simplemente se ejecuta la función `RAIalt()` y se obtiene automáticamente la **Cuadro 5**.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ RAIalt <- with(new.mat, round((Events/Effort)*100, 2))
+  table.2 <- cbind(new.mat, RAIalt)
+knitr::kable(table.2, caption = "Matriz de datos con las estimaciones RAI para cada una de las especies. Observe que el RAI es calculado para cada una de las cámaras basado en el número de fotos independientes (en este ejemplo cada 24 h) y el número de días que estuvo activa cada cámara. Aquí se presentan solo los primeros 26 renglones de un total de 117.", format = "latex", booktabs = TRUE) 
+
+```
+
+Gráficamente estos resultados se muestran en la **Figura 2**. Atendiendo únicamente al promedio las especies con mayor RAI son: *O. virginianus* y *U. cinereoargenteus*, seguidas de *C. latrans*, *L. rufus* y *N. narica*; mientras que el resto de las especies podrían ser las menos abundantes. Sin embargo, observe las líneas verticales que indican la variación (en este caso desviación estándar) del RAI. Esto se debe a que el RAI se estimó por cámara para cada especie de acuerdo a la **Eq.2**. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height= 4, fig.cap= "Estimación del índice de abundancia relativa (RAI) para cada especie."}
+par(mfcol = c(1,1), mar = c(5,5,1,1))
+boxplot(RAIalt ~ Species, data = new.mat, ylab = "RAI", varwidth = F, outline = F, cex = 3.4, las = 2, frame.plot = FALSE, cex.axis = .7, col = "skyblue")
+```
+
+## Comparación estadística entre especies
+
+Para conocer si hay diferencias se puede contrastar estadísticamente los RAI de las especies mediante un análisis de varianza de una vía especificado en R como `lm(RAI ~ Especie)`. Para este fin, la ejecuación del ANOVA se realiza con la función `RAIaov()`.
+
+```{r message=FALSE, warning=FALSE, include=TRUE}
+summary(lm(RAIalt ~ Species-1, data = new.mat))
+```
+
+
+```{r message=FALSE, warning=FALSE}
+modelo1 <- lm(RAIalt ~ Species-1, data = new.mat)
+
+cat("----------------- \n Para extraer coeficientes de la ANOVA:\n")
+extraer <- summary(aov(modelo1))
+extraer
+
+cat("F = ")
+(Fval <- extraer[[1]][[1,4]])
+
+cat("gl = ")
+(gl1 <- extraer[[1]][[1,1]])
+(gl2 <- extraer[[1]][[2,1]])
+
+cat("p = ")
+(p <- extraer[[1]][[1,5]])
+
+(P <- if(p < 0.05) "P < 0.0001" else "NS")
+
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+modelo1 <- lm(RAIalt ~ Species-1, data = new.mat)
+
+cat("----------------- \n Para extraer coeficientes de las 3 especies con P significativas:\n")
+modelo1$coefficients[2]
+modelo1$coefficients[9]
+modelo1$coefficients[13]
+
+cat("----------------- \n Para valor de t-Student y P de todas las especies:\n")
+#summary(modelo1)$coef[,"t value"]
+summary(modelo1)$coef[,"Pr(>|t|)"] 
+
+cat("----------------- \n Para valor de P de las 3 especies:\n")
+summary(modelo1)$coef[2,"Pr(>|t|)"] 
+summary(modelo1)$coef[9,"Pr(>|t|)"] 
+summary(modelo1)$coef[13,"Pr(>|t|)"] 
+
+```
+
+Se encontró diferencia significativa entre los índices de abundancia relativa de las especies (F = `r round(Fval,2)`, gl = `r gl1` y `r gl2`, `r P`). En particular, *Canis latrans* tuvo un coeficiente de `r round(modelo1$coefficients[2],2)`, *Odocoileus virginianus* tuvo un coeficiente de `r round(modelo1$coefficients[9],2)`, y *Urocyon cinereoargenteus* tuvo un coeficiente de `r round(modelo1$coefficients[13],2)`.
+
+\pagebreak
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results= "asis"}
+RAIaov <- aov(RAIalt ~ Species-1, data = new.mat)
+mod <- summary(RAIaov)
+t <- xtable(mod, caption = "Análisis de varianza para comparar el RAI entre especies.")
+print.xtable(t, type = "latex", caption.placement = "top")
+```
+
+
