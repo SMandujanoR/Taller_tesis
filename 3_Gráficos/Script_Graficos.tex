@@ -1,0 +1,591 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Script\_Graficos.R},
+  pdfauthor={smr},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Script\_Graficos.R}
+\author{smr}
+\date{2025-09-10}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# Curso: R para Tesis}
+\CommentTok{\# Ejemplos de 10 prácticas para gráficos con R Base y ggplot2}
+\CommentTok{\# Profesor: SMandujanoR}
+\CommentTok{\# Última modificación: Septiembre 2, 2025}
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+  
+\DocumentationTok{\#\# Sugerencias:}
+
+\CommentTok{\# 1. R Base es ideal para gráficos rápidos y simples}
+\CommentTok{\# 2. ggplot2 ofrece más control y personalización}
+\CommentTok{\# 3. Siempre incluye títulos, ejes y leyendas claras}
+\CommentTok{\# 4. Elige colores entre las diferentes paletas que existen para R}
+\CommentTok{\# 5. Exporta tus gráficos en alta resolución para publicaciones}
+
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#  }
+\DocumentationTok{\#\#\# Práctica 1: Gráfico de barras {-} Abundancia de especies}
+
+\CommentTok{\# Datos de abundancia de aves en diferentes hábitats}
+\NormalTok{especies }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Gorrión"}\NormalTok{, }\StringTok{"Mirlo"}\NormalTok{, }\StringTok{"Petirrojo"}\NormalTok{, }\StringTok{"Herrerillo"}\NormalTok{, }\StringTok{"Carbonero"}\NormalTok{)}
+\NormalTok{bosque }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{jardin }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{parque }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+
+\CommentTok{\# Gráfico de barras agrupadas}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(bosque, jardin, parque), }
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{names.arg =}\NormalTok{ especies,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"forestgreen"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{),}
+        \AttributeTok{main =} \StringTok{"Abundancia de aves por hábitat"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Especies"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Número de individuos"}\NormalTok{,}
+        \AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{40}\NormalTok{))}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }
+       \AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Bosque"}\NormalTok{, }\StringTok{"Jardín"}\NormalTok{, }\StringTok{"Parque"}\NormalTok{),}
+       \AttributeTok{fill =} \FunctionTok{c}\NormalTok{(}\StringTok{"forestgreen"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"darkgreen"}\NormalTok{))}
+\FunctionTok{grid}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 2: Gráfico de dispersión {-} Relación tamaño{-}peso}
+
+\CommentTok{\# Datos de relación entre longitud y peso en peces}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{(longitud }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{30}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 15.75155 25.76610 18.17954 27.66035 28.80935 10.91113 20.56211 27.84838
+##  [9] 21.02870 19.13229 29.13667 19.06668 23.55141 21.45267 12.05849 27.99650
+## [17] 14.92175 10.84119 16.55841 29.09007 27.79079 23.85607 22.81014 29.88540
+## [25] 23.11412 24.17061 20.88132 21.88284 15.78319 12.94227 29.26048 28.04598
+## [33] 23.81411 25.90935 10.49227 19.55592 25.16919 14.32816 16.36362 14.63252
+## [41] 12.85600 18.29093 18.27449 17.37691 13.04889 12.77612 14.66068 19.31925
+## [49] 15.31945 27.15655
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(peso }\OtherTok{\textless{}{-}} \FloatTok{0.8} \SpecialCharTok{*}\NormalTok{ longitud}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{15}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 173.18867 543.68044 266.69709 595.00383 682.78994 101.63917 333.81421
+##  [8] 633.85274 366.93699 305.15948 689.48589 299.13949 442.80656 363.58413
+## [15] 110.61875 616.62258 175.00825  75.04419 251.87921 695.10531 601.01561
+## [22] 449.24632 409.24202 726.20897 426.15935 471.17446 348.39544 382.44391
+## [29] 219.81642 130.61538 707.68783 606.03034 462.45851 538.89328  91.30937
+## [36] 311.64178 499.25568 159.23880 198.93582 155.21154 136.77433 274.36955
+## [43] 267.96055 255.39959 166.97020 123.21795 137.31094 313.67278 177.11050
+## [50] 579.66262
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Gráfico de dispersión con línea de tendencia}
+\FunctionTok{plot}\NormalTok{(longitud, peso,}
+     \AttributeTok{pch =} \DecValTok{16}\NormalTok{,}
+     \AttributeTok{col =} \StringTok{"blue"}\NormalTok{,}
+     \AttributeTok{cex =} \FloatTok{1.2}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Relación longitud{-}peso en peces"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Longitud (cm)"}\NormalTok{,}
+     \AttributeTok{ylab =} \StringTok{"Peso (g)"}\NormalTok{)}
+
+\CommentTok{\# Añadir línea de regresión}
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(peso }\SpecialCharTok{\textasciitilde{}}\NormalTok{ longitud), }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Añadir ecuación de regresión}
+\NormalTok{modelo }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(peso }\SpecialCharTok{\textasciitilde{}}\NormalTok{ longitud)}
+\NormalTok{ecuacion }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"y ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(}\FunctionTok{coef}\NormalTok{(modelo)[}\DecValTok{1}\NormalTok{], }\DecValTok{1}\NormalTok{), }\StringTok{"+"}\NormalTok{, }\FunctionTok{round}\NormalTok{(}\FunctionTok{coef}\NormalTok{(modelo)[}\DecValTok{2}\NormalTok{], }\DecValTok{1}\NormalTok{), }\StringTok{"x"}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FunctionTok{max}\NormalTok{(peso)}\SpecialCharTok{*}\FloatTok{0.9}\NormalTok{, ecuacion, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+
+\CommentTok{\# Añadir coeficiente de correlación}
+\NormalTok{correlacion }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(longitud, peso)}
+\FunctionTok{text}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FunctionTok{max}\NormalTok{(peso)}\SpecialCharTok{*}\FloatTok{0.8}\NormalTok{, }\FunctionTok{paste}\NormalTok{(}\StringTok{"r ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(correlacion, }\DecValTok{3}\NormalTok{)), }\AttributeTok{col =} \StringTok{"black"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-2.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 3: Histograma {-} Distribución de tamaños}
+
+\CommentTok{\# Datos de diámetro de troncos de árboles}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{456}\NormalTok{)}
+\NormalTok{diametros }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{200}\NormalTok{, }\AttributeTok{mean =} \DecValTok{35}\NormalTok{, }\AttributeTok{sd =} \DecValTok{8}\NormalTok{)}
+
+\CommentTok{\# Histograma con curva normal}
+\FunctionTok{hist}\NormalTok{(diametros,}
+     \AttributeTok{breaks =} \DecValTok{20}\NormalTok{,}
+     \AttributeTok{col =} \StringTok{"lightblue"}\NormalTok{,}
+     \AttributeTok{border =} \StringTok{"white"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Distribución de diámetros de troncos"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Diámetro (cm)"}\NormalTok{,}
+     \AttributeTok{ylab =} \StringTok{"Frecuencia"}\NormalTok{,}
+     \AttributeTok{probability =} \ConstantTok{TRUE}\NormalTok{,}
+     \AttributeTok{las =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Añadir curva normal}
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{dnorm}\NormalTok{(x, }\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(diametros), }\AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(diametros)),}
+      \AttributeTok{add =} \ConstantTok{TRUE}\NormalTok{,}
+      \AttributeTok{col =} \StringTok{"red"}\NormalTok{,}
+      \AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Añadir líneas de media y mediana}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =} \FunctionTok{mean}\NormalTok{(diametros), }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v =} \FunctionTok{median}\NormalTok{(diametros), }\AttributeTok{col =} \StringTok{"green"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}
+       \AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Curva normal"}\NormalTok{, }\StringTok{"Media"}\NormalTok{, }\StringTok{"Mediana"}\NormalTok{),}
+       \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"green"}\NormalTok{),}
+       \AttributeTok{lwd =} \DecValTok{2}\NormalTok{,}
+       \AttributeTok{lty =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-3.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 4: Boxplot {-} Comparación de tratamientos}
+
+\CommentTok{\# Datos de crecimiento de plantas bajo diferentes tratamientos}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{789}\NormalTok{)}
+\NormalTok{control }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{fertilizante }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{agua\_extra }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{18}\NormalTok{, }\FloatTok{2.5}\NormalTok{)}
+\NormalTok{luz\_extra }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{20}\NormalTok{, }\FloatTok{2.8}\NormalTok{)}
+
+\CommentTok{\# Boxplot comparativo}
+\FunctionTok{boxplot}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{Control =}\NormalTok{ control, }
+             \AttributeTok{Fertilizante =}\NormalTok{ fertilizante,}
+             \StringTok{"Agua extra"} \OtherTok{=}\NormalTok{ agua\_extra,}
+             \StringTok{"Luz extra"} \OtherTok{=}\NormalTok{ luz\_extra),}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightgreen"}\NormalTok{, }\StringTok{"lightyellow"}\NormalTok{, }\StringTok{"lightpink"}\NormalTok{),}
+        \AttributeTok{main =} \StringTok{"Crecimiento de plantas por tratamiento"}\NormalTok{,}
+        \AttributeTok{ylab =} \StringTok{"Altura (cm)"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Tratamiento"}\NormalTok{,}
+        \AttributeTok{notch =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in (function (z, notch = FALSE, width = NULL, varwidth = FALSE, : some
+## notches went outside hinges ('box'): maybe set notch=FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Añadir puntos de datos}
+\FunctionTok{stripchart}\NormalTok{(}\FunctionTok{list}\NormalTok{(control, fertilizante, agua\_extra, luz\_extra),}
+           \AttributeTok{vertical =} \ConstantTok{TRUE}\NormalTok{,}
+           \AttributeTok{method =} \StringTok{"jitter"}\NormalTok{,}
+           \AttributeTok{add =} \ConstantTok{TRUE}\NormalTok{,}
+           \AttributeTok{pch =} \DecValTok{16}\NormalTok{,}
+           \AttributeTok{col =} \FunctionTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.3}\NormalTok{))}
+
+\CommentTok{\# Añadir grid}
+\FunctionTok{grid}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-4.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 5: Gráfico de líneas {-} Seguimiento temporal}
+
+\CommentTok{\# Datos de población de linces a lo largo del tiempo}
+\NormalTok{años }\OtherTok{\textless{}{-}} \DecValTok{2010}\SpecialCharTok{:}\DecValTok{2020}
+\NormalTok{poblacion }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{120}\NormalTok{, }\DecValTok{115}\NormalTok{, }\DecValTok{125}\NormalTok{, }\DecValTok{130}\NormalTok{, }\DecValTok{145}\NormalTok{, }\DecValTok{160}\NormalTok{, }\DecValTok{175}\NormalTok{, }\DecValTok{190}\NormalTok{, }\DecValTok{210}\NormalTok{, }\DecValTok{225}\NormalTok{, }\DecValTok{240}\NormalTok{)}
+
+\CommentTok{\# Gráfico de líneas con puntos}
+\FunctionTok{plot}\NormalTok{(años, poblacion,}
+     \AttributeTok{type =} \StringTok{"p"}\NormalTok{,}
+     \AttributeTok{pch =} \DecValTok{17}\NormalTok{,}
+     \AttributeTok{cex =} \FloatTok{1.5}\NormalTok{,}
+     \AttributeTok{col =} \StringTok{"skyblue2"}\NormalTok{,}
+     \AttributeTok{lwd =} \DecValTok{2}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Evolución de la población de linces (2010{-}2020)"}\NormalTok{,}
+     \AttributeTok{cex.main  =} \FloatTok{0.9}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Año"}\NormalTok{,}
+     \AttributeTok{ylab =} \StringTok{"Número de individuos"}\NormalTok{,}
+     \AttributeTok{frame.plot =}\NormalTok{ F,}
+     \AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{))}
+
+\CommentTok{\# Añadir línea de tendencia}
+\NormalTok{tendencia }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(poblacion }\SpecialCharTok{\textasciitilde{}}\NormalTok{ años)}
+\FunctionTok{abline}\NormalTok{(tendencia, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Añadir área sombreada para intervalo de confianza}
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(tendencia, }\AttributeTok{interval =} \StringTok{"confidence"}\NormalTok{)}
+\FunctionTok{polygon}\NormalTok{(}\FunctionTok{c}\NormalTok{(años, }\FunctionTok{rev}\NormalTok{(años)), }\FunctionTok{c}\NormalTok{(pred[,}\DecValTok{2}\NormalTok{], }\FunctionTok{rev}\NormalTok{(pred[,}\DecValTok{3}\NormalTok{])),}
+        \AttributeTok{col =} \FunctionTok{rgb}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.2}\NormalTok{), }\AttributeTok{border =} \ConstantTok{NA}\NormalTok{)}
+
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topleft"}\NormalTok{,}
+       \AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Datos observados"}\NormalTok{, }\StringTok{"Tendencia"}\NormalTok{),}
+       \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"brown"}\NormalTok{, }\StringTok{"red"}\NormalTok{),}
+       \AttributeTok{lwd =} \DecValTok{2}\NormalTok{,}
+       \AttributeTok{pch =} \FunctionTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{, }\ConstantTok{NA}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-5.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\# Gráficos con ggplot2}
+
+\DocumentationTok{\#\#\# Práctica 6: Gráfico de barras ggplot2 {-} Biodiversidad}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datos de riqueza de especies por hábitat}
+\NormalTok{datos\_biodiversidad }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Habitat =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Bosque"}\NormalTok{, }\StringTok{"Pradera"}\NormalTok{, }\StringTok{"Humedal"}\NormalTok{, }\StringTok{"Desierto"}\NormalTok{), }\AttributeTok{each =} \DecValTok{3}\NormalTok{),}
+  \AttributeTok{Tipo =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Aves"}\NormalTok{, }\StringTok{"Mamíferos"}\NormalTok{, }\StringTok{"Reptiles"}\NormalTok{), }\DecValTok{4}\NormalTok{),}
+  \AttributeTok{Riqueza =} \FunctionTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\# Gráfico de barras apiladas}
+\FunctionTok{ggplot}\NormalTok{(datos\_biodiversidad, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Habitat, }\AttributeTok{y =}\NormalTok{ Riqueza, }\AttributeTok{fill =}\NormalTok{ Tipo)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{position =} \StringTok{"stack"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Aves"} \OtherTok{=} \StringTok{"\#1f77b4"}\NormalTok{, }\StringTok{"Mamíferos"} \OtherTok{=} \StringTok{"\#ff7f0e"}\NormalTok{, }\StringTok{"Reptiles"} \OtherTok{=} \StringTok{"\#2ca02c"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Riqueza de especies por hábitat y tipo"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Hábitat"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Número de especies"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Grupo taxonómico"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{,}
+        \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-6.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 7: Gráfico de dispersión ggplot2 {-} Genética}
+
+\CommentTok{\# Datos de expresión génica vs metilación}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{datos\_geneticos }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Muestra =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"M"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{),}
+  \AttributeTok{Expresion\_Genica =} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{),}
+  \AttributeTok{Metilacion =} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+  \AttributeTok{Tipo\_Cancer =} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Tipo\_A"}\NormalTok{, }\StringTok{"Tipo\_B"}\NormalTok{, }\StringTok{"Tipo\_C"}\NormalTok{), }\DecValTok{100}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{Estadio =} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\DecValTok{100}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{))}
+\NormalTok{)}
+\FunctionTok{View}\NormalTok{(datos\_geneticos)}
+\CommentTok{\# Gráfico de dispersión con múltiples estéticas}
+\FunctionTok{ggplot}\NormalTok{(datos\_geneticos, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Expresion\_Genica, }\AttributeTok{y =}\NormalTok{ Metilacion, }\AttributeTok{color =}\NormalTok{ Tipo\_Cancer, }\AttributeTok{size =}\NormalTok{ Estadio)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{group =}\NormalTok{ Tipo\_Cancer)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Set1"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Relación entre expresión génica y metilación del DNA"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Expresión génica (log2)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Nivel de metilación (\%)"}\NormalTok{,}
+       \AttributeTok{color =} \StringTok{"Tipo de cáncer"}\NormalTok{,}
+       \AttributeTok{size =} \StringTok{"Estadio"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tipo\_Cancer) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: The following aesthetics were dropped during statistical transformation: size.
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: The following aesthetics were dropped during statistical transformation: size.
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+## The following aesthetics were dropped during statistical transformation: size.
+## i This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## i Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-7.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 8: Boxplot ggplot2 {-} Comparación experimental}
+
+\CommentTok{\# Datos de experimento de toxicidad}
+\NormalTok{datos\_toxicidad }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Tratamiento =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Control"}\NormalTok{, }\StringTok{"Baja"}\NormalTok{, }\StringTok{"Media"}\NormalTok{, }\StringTok{"Alta"}\NormalTok{), }\AttributeTok{each =} \DecValTok{20}\NormalTok{),}
+  \AttributeTok{Concentracion =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{), }\AttributeTok{each =} \DecValTok{20}\NormalTok{),}
+  \AttributeTok{Supervivencia =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DecValTok{5}\NormalTok{), }\FunctionTok{rnorm}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{8}\NormalTok{), }\FunctionTok{rnorm}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{12}\NormalTok{), }\FunctionTok{rnorm}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{15}\NormalTok{)),}
+  \AttributeTok{Especie =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Daphnia"}\NormalTok{, }\StringTok{"Artemia"}\NormalTok{), }\DecValTok{40}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\# Boxplot con puntos y violín}
+\FunctionTok{ggplot}\NormalTok{(datos\_toxicidad, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Tratamiento, }\AttributeTok{y =}\NormalTok{ Supervivencia, }\AttributeTok{fill =}\NormalTok{ Tratamiento)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{trim =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"RdYlBu"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Supervivencia bajo diferentes concentraciones tóxicas"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Tratamiento"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Porcentaje de supervivencia"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Especie) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-8.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 9: Gráfico de líneas ggplot2 {-} Cambio climático}
+
+\CommentTok{\# Datos de temperatura y CO2 a lo largo del tiempo}
+\NormalTok{datos\_clima }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\NormalTok{  Año }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{2000}\SpecialCharTok{:}\DecValTok{2020}\NormalTok{, }\DecValTok{2}\NormalTok{),}
+  \AttributeTok{Variable =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Temperatura"}\NormalTok{, }\StringTok{"CO2"}\NormalTok{), }\AttributeTok{each =} \DecValTok{21}\NormalTok{),}
+  \AttributeTok{Valor =} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\FloatTok{14.0}\NormalTok{, }\FloatTok{15.5}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{21}\NormalTok{), }
+            \FunctionTok{seq}\NormalTok{(}\DecValTok{370}\NormalTok{, }\DecValTok{420}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{21}\NormalTok{)),}
+  \AttributeTok{Unidad =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"°C"}\NormalTok{, }\StringTok{"ppm"}\NormalTok{), }\AttributeTok{each =} \DecValTok{21}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\# Gráfico de líneas con dos escalas}
+\FunctionTok{ggplot}\NormalTok{(datos\_clima, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Año, }\AttributeTok{y =}\NormalTok{ Valor, }\AttributeTok{color =}\NormalTok{ Variable)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Temperatura"} \OtherTok{=} \StringTok{"red"}\NormalTok{, }\StringTok{"CO2"} \OtherTok{=} \StringTok{"blue"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Tendencia de temperatura y CO2 atmosférico (2000{-}2020)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Año"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Valor"}\NormalTok{,}
+       \AttributeTok{color =} \StringTok{"Variable"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+        \AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Variable, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-9.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\DocumentationTok{\#\#\# Práctica 10: Heatmap ggplot2 {-} Expresión génica}
+
+\CommentTok{\# Datos de expresión génica (heatmap)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{456}\NormalTok{)}
+\NormalTok{genes }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"GEN"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{)}
+\NormalTok{muestras }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"M"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# Crear matriz de expresión}
+\NormalTok{matriz\_expresion }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{200}\NormalTok{, }\AttributeTok{mean =} \DecValTok{10}\NormalTok{, }\AttributeTok{sd =} \DecValTok{2}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{20}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{10}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(matriz\_expresion) }\OtherTok{\textless{}{-}}\NormalTok{ genes}
+\FunctionTok{colnames}\NormalTok{(matriz\_expresion) }\OtherTok{\textless{}{-}}\NormalTok{ muestras}
+
+\CommentTok{\# Convertir a formato largo para ggplot2}
+\FunctionTok{library}\NormalTok{(reshape2)}
+\NormalTok{datos\_heatmap }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(matriz\_expresion)}
+\FunctionTok{colnames}\NormalTok{(datos\_heatmap) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Gen"}\NormalTok{, }\StringTok{"Muestra"}\NormalTok{, }\StringTok{"Expresion"}\NormalTok{)}
+
+\CommentTok{\# Añadir información de grupos}
+\NormalTok{datos\_heatmap}\SpecialCharTok{$}\NormalTok{Grupo }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"M[1{-}5]"}\NormalTok{, datos\_heatmap}\SpecialCharTok{$}\NormalTok{Muestra), }\StringTok{"Control"}\NormalTok{, }\StringTok{"Tratamiento"}\NormalTok{)}
+\NormalTok{datos\_heatmap}\SpecialCharTok{$}\NormalTok{Tipo\_Gen }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Metabolismo"}\NormalTok{, }\StringTok{"Señalización"}\NormalTok{, }\StringTok{"Estructural"}\NormalTok{), }\FunctionTok{nrow}\NormalTok{(datos\_heatmap), }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Heatmap con ggplot2}
+\FunctionTok{ggplot}\NormalTok{(datos\_heatmap, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Muestra, }\AttributeTok{y =}\NormalTok{ Gen, }\AttributeTok{fill =}\NormalTok{ Expresion)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient2}\NormalTok{(}\AttributeTok{low =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{mid =} \StringTok{"white"}\NormalTok{, }\AttributeTok{high =} \StringTok{"red"}\NormalTok{, }\AttributeTok{midpoint =} \FunctionTok{mean}\NormalTok{(datos\_heatmap}\SpecialCharTok{$}\NormalTok{Expresion)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Perfil de expresión génica"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Muestras"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Genes"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Expresión}\SpecialCharTok{\textbackslash{}n}\StringTok{(log2)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{), }\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_grid}\NormalTok{(. }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Grupo, }\AttributeTok{scales =} \StringTok{"free\_x"}\NormalTok{, }\AttributeTok{space =} \StringTok{"free\_x"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Script_Graficos_files/figure-latex/unnamed-chunk-1-10.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\# FIN SCRIPT}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## null device 
+##           1
+\end{verbatim}
+
+\end{document}
