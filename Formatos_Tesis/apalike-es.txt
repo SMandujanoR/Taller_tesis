@@ -1,0 +1,53 @@
+[EN]
+
+This is the Spanish version of the BibTeX 'apalike' bibliograpy style.
+
+Last revision: 2-oct-13
+Translated and adapted by Santi Planet (mailto:splanet@gmail.com)
+
+Usage:
+
+Use it in the same way than the original 'apalike' style but replacing the 'apalike.bst' file with the 'apalike-es.bst' file and adding the line '\bibliographystyle{apalike-es}' in the main file of the document.
+
+These are the parts translated (following the RAE rules):
+
+pages --> pp.
+page --> p.
+et~al. --> \textit{et al.} (la RAE marca que et al. equivale a un extanjerismo y debe ir en cursiva)
+volume --> volumen
+number --> número
+chapter --> capítulo
+In --> En
+and --> y Pero si el apellido comienza por "I" la "y" pasa a ser "e"
+editors --> editores
+PhD Thesis --> Tesis doctoral
+Mater's thesis --> Tesis de máster
+edition --> edición
+
+###########################################################################
+
+[ES]
+
+Esta es la versión en español del estilo bibliográfico 'apalike' de BibTeX.
+
+Última revisión: 2-oct-13
+Traducido y adaptado por Santi Planet (mailto:splanet@gmail.com)
+
+Uso:
+
+Igual que el estilo original 'apalike2 pero reemplazando el archivo 'apalike.bst' por el archivo 'apalike-es.bst' y añadiendo la línea '\bibliographystyle{apalike-es}' en el archivo principal del documento.
+
+Estas son las partes traducidas (siguiendo las reglas de la RAE):
+
+pages --> pp.
+page --> p.
+et~al. --> \textit{et al.} (la RAE marca que et al. equivale a un extanjerismo y debe ir en cursiva)
+volume --> volumen
+number --> número
+chapter --> capítulo
+In --> En
+and --> y Pero si el apellido comienza por "I" la "y" pasa a ser "e"
+editors --> editores
+PhD Thesis --> Tesis doctoral
+Mater's thesis --> Tesis de máster
+edition --> edición
