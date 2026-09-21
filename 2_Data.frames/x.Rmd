@@ -1,0 +1,29 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Los ejercicios son:
+
+# a) Tabla y gráfico de los conteos de esta especie en cada año:
+años <- table(Art_jam$Año)
+barplot(años)
+
+# b) Tabla y gráfico de los conteos de esta especie en cada tipo de vegetación:
+ANP <- table(Art_jam$ANP)
+barplot(ANP)
+
+# c) Tabla y gráfico de los conteos de esta especie en cada localidad:
+Loc <- table(Art_jam$Localidad)
+barplot(Loc)
+
+# d) Tabla y gráfico de los conteos de esta especie en cada tipo de vegetación:
+Vegt <- table(Art_jam$Tipo_Vegt)
+barplot(Vegt)
+
+# e) Tabla y gráfico de los conteos de esta especie a diferentes altitudes. Este es el ejercicio "más complicado" pues la altitud es una variable continua, es decir ¿Cómo podrían representar estos resultados en forma de tabla y luego graficarlos?:
+
+# --------
+# punto extra al que embellezca las gráficas...!!!
+
+# Al terminar harán una compilación en HTML la cual guardarán poniendo su NOMBRE y me lo van enviar de preferencia HOY MISMO...!
