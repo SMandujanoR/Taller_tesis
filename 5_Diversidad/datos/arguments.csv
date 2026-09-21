@@ -1,0 +1,29 @@
+Arguments,description
+X,"Community data frame with sites as rows, species as columns and species abundance as cell values."
+Y,Environmental data frame.
+factor,Variable of the environmental data frame that defines subsets to calculate species accumulation curves for.
+level,Level of the variable to create the subset to calculate species accumulation curves.
+scale,Continuous variable of the environmental data frame that defines the variable that scales the horizontal axis of the species accumulation curves.
+method,"Method of calculating the species accumulation curve (as in function specaccum). Method ""collector"" adds sites in the order they happen to be in the data, ""random"" adds sites in random order, ""exact"" finds the expected (mean) species richness, ""coleman"" finds the expected richness following Coleman et al. 1982, and ""rarefaction"" finds the mean when accumulating individuals instead of sites."
+permutations,Number of permutations to calculate the species accumulation curve (as in function specaccum).
+conditioned,Estimation of standard deviation is conditional on the empirical dataset for the exact SAC (as in function specaccum).
+gamma,Method for estimating the total extrapolated number of species in the survey area (as in specaccum).
+addit,Add species accumulation curve to an existing graph.
+xr,Result from specaccum or accumresult.
+col,Colour for drawing lines of the species accumulation curve (as in function plot.specaccum).
+labels,Labels to plot at left and right of the species accumulation curves.
+ci,Multiplier used to get confidence intervals from standard deviatione (as in function plot.specaccum).
+pch,Symbol used for drawing the species accumulation curve (as in function points).
+type,Type of plot (as in function plot).
+cex,Character expansion factor (as in function plot).
+xlim,Limits for the X = horizontal axis.
+ylim,Limits for the Y = vertical axis.
+xlab,Label for the X = horizontal axis (as in function title).
+ylab,Label for the Y = vertical axis (as in function title).
+cex.lab,The magnification to be used for X and Y labels relative to the current setting of cex. (as in function par).
+cex.axis,The magnification to be used for axis annotation relative to the current setting of cex (as in function par).
+plotit,Plot the results.
+labelit,Label the species accumulation curves with the levels of the categorical variable.
+legend,Add the legend (you need to click in the graph where the legend needs to be plotted).
+rainbow,Use rainbow colouring for the different curves.
+...,Other items passed to function specaccum or plot.specaccum.

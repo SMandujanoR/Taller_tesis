@@ -1,0 +1,10 @@
+argumentos,descripción
+x,"matriz, data.frame, lista de abundancia /incidencias de especies"
+q,"Número que especifica los órdenes de diversidad de Hill (0,1,2)"
+Datatype,"Tipo de datos de entrada: abundance,  incidencia"
+Size,Vector entero para el cual se calcularán las estimaciones de diversidad
+endpoint,"un número  entero que especifica el tamaño de la muestra que es el punto final para la rarefacción/extrapolación. Si es NULL, entonces punto final = tamaño de muestra de referencia doble"
+knots,"un número entero que especifica el número de nudos igualmente espaciados (digamos K, por defecto es 40) entre el tamaño 1 y el punto final (endpoint)"
+se,una variable lógica para calcular el error estándar bootstrap y el intervalo de confianza conf
+conf,"un número positivo < 1 que especifica el nivel del intervalo de confianza, por defecto es 0,95."
+nboot,un número entero que especifica el número de réplicas.
